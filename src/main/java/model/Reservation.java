@@ -2,19 +2,21 @@ package model;
 
 import java.util.ArrayList;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 
+@Entity
 public class Reservation {
 	@Id
 	@GeneratedValue
 	private int reservation_id;
-	private int customer_id;
 	private long start_date;
 	private long end_date;
-	
-	@ManyToMany
+
+	@ManyToMany(cascade = CascadeType.ALL)
 	private ArrayList<Room> rooms;
 
 	public int getReservation_id() {
@@ -23,14 +25,6 @@ public class Reservation {
 
 	public void setReservation_id(int reservation_id) {
 		this.reservation_id = reservation_id;
-	}
-
-	public int getCustomer_id() {
-		return customer_id;
-	}
-
-	public void setCustomer_id(int customer_id) {
-		this.customer_id = customer_id;
 	}
 
 	public long getStart_date() {

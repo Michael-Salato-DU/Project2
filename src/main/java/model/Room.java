@@ -2,17 +2,20 @@ package model;
 
 import java.util.ArrayList;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 
+@Entity
 public class Room {
 	@Id
 	@GeneratedValue
 	private int room_id;
 	private byte number_of_beds;
 	
-	@ManyToMany
+	@ManyToMany(cascade = CascadeType.ALL, mappedBy="reservation")
 	ArrayList<Reservation> reservations;
 
 	public int getRoom_id() {
