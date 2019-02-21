@@ -18,6 +18,14 @@ public class Reservation {
 
 	@ManyToMany(cascade = CascadeType.ALL)
 	private ArrayList<Room> rooms;
+	
+	public Reservation(int reservation_id, long start_date, long end_date, ArrayList<Room> rooms) {
+		super();
+		this.reservation_id = reservation_id;
+		this.start_date = start_date;
+		this.end_date = end_date;
+		this.rooms = rooms;
+	}
 
 	public int getReservation_id() {
 		return reservation_id;

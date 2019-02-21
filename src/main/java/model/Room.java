@@ -18,6 +18,14 @@ public class Room {
 	@ManyToMany(cascade = CascadeType.ALL, mappedBy="reservation")
 	ArrayList<Reservation> reservations;
 
+	
+	public Room(int room_id, byte number_of_beds, ArrayList<Reservation> reservations) {
+		super();
+		this.room_id = room_id;
+		this.number_of_beds = number_of_beds;
+		this.reservations = reservations;
+	}
+
 	public int getRoom_id() {
 		return room_id;
 	}
