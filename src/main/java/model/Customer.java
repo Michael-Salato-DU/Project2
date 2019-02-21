@@ -20,6 +20,20 @@ public class Customer {
 	
 	@OneToMany
 	private ArrayList<Reservation> reservations;
+	
+	public Customer(int customer_id, String first_name, String last_name, String username, String password,
+			String email, String phone_number, String address, ArrayList<Reservation> reservations) {
+		super();
+		this.customer_id = customer_id;
+		this.first_name = first_name;
+		this.last_name = last_name;
+		this.username = username;
+		this.password = password;
+		this.email = email;
+		this.phone_number = phone_number;
+		this.address = address;
+		this.reservations = reservations;
+	}
 
 	public int getCustomer_id() {
 		return customer_id;
