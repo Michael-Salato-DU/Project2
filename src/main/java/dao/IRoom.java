@@ -1,5 +1,9 @@
 package dao;
 
-public interface IRoom {
+import java.util.ArrayList;
 
+import model.Room;
+
+public interface IRoom {
+	ArrayList<Room> getRooms();
 }
