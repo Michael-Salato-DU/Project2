@@ -2,6 +2,7 @@ package model;
 
 import java.util.ArrayList;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -14,6 +15,7 @@ public class Customer {
 	private int customer_id;
 	private String first_name;
 	private String last_name;
+	@Column(unique = true)
 	private String username;
 	private String password;
 	private String email;

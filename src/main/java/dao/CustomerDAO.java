@@ -1,14 +1,24 @@
 package dao;
 
+import java.util.List;
+
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+
+import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.criterion.Criterion;
+import org.hibernate.criterion.Restrictions;
 
 import model.Customer;
 import util.HibernateUtil;
 
 public class CustomerDAO implements ICustomer{
-	SessionFactory sf = HibernateUtil.getSessionFactory();
+  
+  public static SessionFactory sf = HibernateUtil.getSessionFactory();
+
 	/*
 	 * (non-Javadoc)
 	 * @see dao.ICustomer#addUser(model.Customer)
@@ -31,6 +41,7 @@ public class CustomerDAO implements ICustomer{
 			return false;
 		}
 	}
+  
 	/*
 	 * (non-Javadoc)
 	 * @see dao.ICustomer#getCustomer(java.lang.String)
@@ -50,33 +61,48 @@ public class CustomerDAO implements ICustomer{
 		}catch(HibernateException e) {
 			e.printStackTrace();
 			return null;
+    }
+  }
+  
+	public boolean Login(String username, String password) {
+		Session sess = sf.openSession();
+		Criteria crit = sess.createCriteria(Customer.class);
+		Criterion selectUsername = Restrictions.eq("username", username);
+		Criterion selectPassword = Restrictions.eq("password", password);
+		Criterion condition = Restrictions.and(selectUsername, selectPassword);
+		crit.add(condition);
+		List results = crit.list();
+		if (results.size() == 1)
+		{
+			return true;
+		} 
+		else
+		{
+			return false;
 		}
 	}
+  
 	/*
 	 * (non-Javadoc)
 	 * @see dao.ICustomer#UpdateUser(model.Customer)
 	 * updates a customers details with a new customer
 	 */
-	public boolean UpdateUser(Customer c) {
-		try {
+	public boolean UpdateUser(Customer c) {		
+		try
+		{
 			Session sess = sf.openSession();
 			sess.beginTransaction();
-			
 			sess.saveOrUpdate(c);
-			
 			sess.getTransaction().commit();
 			sess.close();
 			return true;
-		}catch(HibernateException e) {
+		}
+		catch (HibernateException e)
+		{
 			e.printStackTrace();
 			return false;
 		}
 		
 	}
-	//get the password from user, hash it check if hashed value is in the db and is the same id as the username
 	
-	public boolean Login(String username, String password) {
-		return false;
-	}
-
 }
