@@ -10,6 +10,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Restrictions;
 
 import model.Reservation;
+import model.Room;
 import util.HibernateUtil;
 
 public class ReservationDAO implements IReservation{
@@ -50,7 +51,6 @@ public class ReservationDAO implements IReservation{
 		List reservations = crit.list();
 		
 		sess.close();
-		
 		return new ArrayList<Reservation>(reservations);		
 	}
 	
@@ -90,6 +90,11 @@ public class ReservationDAO implements IReservation{
 		sess.close();
 		
 		return reservation;
+	}
+
+	public boolean MakeAReservation(Room r, Reservation rs) {
+		
+		return false;
 	}
 
 }
