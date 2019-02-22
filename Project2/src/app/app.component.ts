@@ -9,14 +9,24 @@ export class AppComponent {
   title = 'BADS Hotel';
 
   n =  new Date();
-  y = this.n.getFullYear();
-  m = this.n.getMonth() + 1;
-  ad = this.n.getDate();
-  dd =  this.n.getDate() +1;
-  adate = this.y + "-" + this.m + "-" + this.ad
-  ddate = this.y + "-" + this.m + "-" + this.dd
+   y = this.n.getFullYear();
+   m = this.n.getMonth() + 1;
+   d = this.n.getDate();
 
-  //date :any = new Date().toJSON().split('T')[0];
+   today :string = this.y + "-0" + this.m + "-" + this.d
+  
+   startDate :string;
+   endDate :string;
+
+   // when you click the submit button,
+   // it will set endDate to startDate if endDate is undefined
+   submitDates() {
+     if (this.endDate == "undefined") {
+       this.endDate = this.startDate;
+     }
+    
+     console.log(this.endDate);
+   }
 
 }
 
