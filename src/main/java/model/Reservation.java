@@ -13,15 +13,24 @@ public class Reservation {
 	@Id
 	@GeneratedValue
 	private int reservation_id;
+	private int customer_id;
 	private long start_date;
 	private long end_date;
 
 	@ManyToMany(cascade = CascadeType.ALL)
 	private ArrayList<Room> rooms;
-	
-	public Reservation(int reservation_id, long start_date, long end_date, ArrayList<Room> rooms) {
+
+	/**
+	 * @param reservation_id
+	 * @param customer_id
+	 * @param start_date
+	 * @param end_date
+	 * @param rooms
+	 */
+	public Reservation(int reservation_id, int customer_id, long start_date, long end_date, ArrayList<Room> rooms) {
 		super();
 		this.reservation_id = reservation_id;
+		this.customer_id = customer_id;
 		this.start_date = start_date;
 		this.end_date = end_date;
 		this.rooms = rooms;
@@ -58,6 +67,21 @@ public class Reservation {
 	public void setRooms(ArrayList<Room> rooms) {
 		this.rooms = rooms;
 	}
+
+	/**
+	 * @return the customer_id
+	 */
+	public int getCustomer_id() {
+		return customer_id;
+	}
+
+	/**
+	 * @param customer_id the customer_id to set
+	 */
+	public void setCustomer_id(int customer_id) {
+		this.customer_id = customer_id;
+	}
+	
 	
 	
 }
