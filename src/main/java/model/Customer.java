@@ -110,7 +110,4 @@ public class Customer {
 	public void setReservations(ArrayList<Reservation> reservations) {
 		this.reservations = reservations;
 	}
-	
-	
-	
 }

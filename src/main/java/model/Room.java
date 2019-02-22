@@ -15,7 +15,7 @@ public class Room {
 	private int room_id;
 	private byte number_of_beds;
 	
-	@ManyToMany(cascade = CascadeType.ALL, mappedBy="reservation")
+	@ManyToMany(cascade = CascadeType.ALL)
 	ArrayList<Reservation> reservations;
 
 	
