@@ -42,14 +42,8 @@
 
 <!-- ------------------------------------------------------------------------------------ -->
 
+Arrival Date <input type="date" [min] = "today" [(ngModel)] = "startDate">
+Departure Date <input type="date" [value] = "startDate" [min] = "startDate" [(ngModel)] = "endDate">
 
-Arrival Date <input type="date" id="aDate" min ="{{adate | date: 'yyyy-MM-dd'}}" value ="{{adate | date: 'yyyy-MM-dd'}}" >
-Departure Date <input type="date" id="dDate" min ="{{ddate | date: 'yyyy-MM-dd'}}" value ="{{ddate | date: 'yyyy-MM-dd'}}" >
-Room Size <select>
-  <option value="small">Small Room</option>
-  <option value="medium">Medium Room</option>
-  <option value="large">Large Room</option>
-</select>
-<h1>{{date | date: 'yyyy-MM-dd'}}
-</h1>
+<button (click) = "submitDates()">Submit</button>
 <router-outlet></router-outlet>
