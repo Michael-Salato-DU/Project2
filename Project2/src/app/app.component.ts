@@ -15,8 +15,8 @@ export class AppComponent {
 
    today :string = this.y + "-0" + this.m + "-" + this.d
   
-   startDate :string;
-   endDate :string;
+   startDate :string = this.today;
+   endDate :string; // preferably initialze to tommorow's date
 
    // when you click the submit button,
    // it will set endDate to startDate if endDate is undefined
