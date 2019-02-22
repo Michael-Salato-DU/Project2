@@ -16,28 +16,54 @@ import model.Customer;
 import util.HibernateUtil;
 
 public class CustomerDAO implements ICustomer{
+  
+  public static SessionFactory sf = HibernateUtil.getSessionFactory();
 
-	public static SessionFactory sf = HibernateUtil.getSessionFactory();
-	
+	/*
+	 * (non-Javadoc)
+	 * @see dao.ICustomer#addUser(model.Customer)
+	 * adds a new user to the database, should return false when the 
+	 * user exists or does not meet password requirements
+	 * 
+	 */
 	public boolean addUser(Customer c) {
-		
-		try
-		{
+		try {
 			Session sess = sf.openSession();
 			sess.beginTransaction();
 			sess.persist(c);
+			
 			sess.getTransaction().commit();
 			sess.close();
 			return true;
-		}
-		catch(HibernateException e)
-		{
+			
+		}catch(HibernateException e) {
 			e.printStackTrace();
 			return false;
 		}
-		
 	}
-
+  
+	/*
+	 * (non-Javadoc)
+	 * @see dao.ICustomer#getCustomer(java.lang.String)
+	 * returns a customers details based on username 
+	 * should return null if the customer doesn't exist
+	 */
+	public Customer getCustomer(String username) {
+		
+		try {
+			Session sess = sf.openSession();
+			sess.beginTransaction();
+			
+			Customer customer = sess.get(Customer.class, username);
+			sess.getTransaction().commit();
+			
+			return customer;
+		}catch(HibernateException e) {
+			e.printStackTrace();
+			return null;
+    }
+  }
+  
 	public boolean Login(String username, String password) {
 		Session sess = sf.openSession();
 		Criteria crit = sess.createCriteria(Customer.class);
@@ -55,9 +81,13 @@ public class CustomerDAO implements ICustomer{
 			return false;
 		}
 	}
-
-	public boolean UpdateUser(Customer c) {
-		
+  
+	/*
+	 * (non-Javadoc)
+	 * @see dao.ICustomer#UpdateUser(model.Customer)
+	 * updates a customers details with a new customer
+	 */
+	public boolean UpdateUser(Customer c) {		
 		try
 		{
 			Session sess = sf.openSession();
@@ -74,24 +104,5 @@ public class CustomerDAO implements ICustomer{
 		}
 		
 	}
-
-	public Customer getCustomer(String username) {
-		
-		try 
-		{
-			Session sess = sf.openSession();
-			Criteria crit = sess.createCriteria(Customer.class);
-			Criterion customerUsername = Restrictions.eq("username", username);
-			crit.add(customerUsername);
-			Customer c = (Customer)crit.uniqueResult();
-			return c;
-		}
-		catch(HibernateException e)
-		{
-			e.printStackTrace();
-			return null;
-		}
-		
-	}
-
+	
 }
