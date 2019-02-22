@@ -42,8 +42,11 @@
 
 <!-- ------------------------------------------------------------------------------------ -->
 
-Arrival Date <input type="date" [min] = "today" [(ngModel)] = "startDate">
-Departure Date <input type="date" [value] = "startDate" [min] = "startDate" [(ngModel)] = "endDate">
 
-<button (click) = "submitDates()">Submit</button>
+<div style="text-align:center">
+  Arrival Date <input type="date" [min] = "today" [(ngModel)] = "startDate">
+  Departure Date <input type="date" [value] = "startDate" [min] = "startDate" [(ngModel)] = "endDate"><br>
+  <button (click) = "submitDates()" style="width:auto">Submit</button>
+</div>
+
 <router-outlet></router-outlet>
