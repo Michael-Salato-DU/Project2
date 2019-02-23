@@ -7,6 +7,7 @@ import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.criterion.Criterion;
 import org.hibernate.criterion.Restrictions;
 
 import model.Reservation;
@@ -24,9 +25,10 @@ public class ReservationDAO implements IReservation{
 		
 		try {
 			Session sess = sf.openSession();
+			
 			sess.beginTransaction();
 			
-			sess.persist(r);
+			sess.save(r);
 			
 			sess.getTransaction().commit();
 			sess.close();
@@ -74,6 +76,19 @@ public class ReservationDAO implements IReservation{
 			h.printStackTrace();
 			return false;
 		}
+	}
+
+	/*This method returns an ArrayList of all reservations held by a single customer*/
+	public ArrayList<Reservation> getAllReservationsByCustomerId(int customer_id)
+	{
+		Session session = sf.openSession();
+		session.beginTransaction();
+		Criteria criteria = session.createCriteria(Reservation.class);
+		Criterion byUsername = Restrictions.eq("customer_id", customer_id);
+		criteria.add(byUsername);
+		List reservations = criteria.list();
+		ArrayList<Reservation> arrayListOfReservations= new ArrayList<Reservation>(reservations);
+		return arrayListOfReservations;
 	}
 
 }

@@ -19,6 +19,13 @@ public class ReservationService {
 		return reservations;
 	}
 	
+	
+	public static ArrayList<Reservation> getAllReservationsByCustomerId(int customer_id)
+	{
+		ArrayList<Reservation> listOfReservations = rd.getAllReservationsByCustomerId(customer_id);
+		return listOfReservations;
+	}
+	
 	public static boolean deleteReservation(int reservation_id) {
 		return rd.deleteReservation(reservation_id);
 	}

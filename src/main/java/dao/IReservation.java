@@ -9,4 +9,5 @@ public interface IReservation {
 	boolean createReservation(Reservation r);
 	ArrayList<Reservation> GetAllReservations();
 	boolean deleteReservation(int reservation_id);
+	ArrayList<Reservation>  getAllReservationsByCustomerId(int customer_id);
 }

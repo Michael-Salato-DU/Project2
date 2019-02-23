@@ -1,7 +1,9 @@
 package model;
 
 import java.util.ArrayList;
+import java.util.List;
 
+import model.Reservation;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -15,11 +17,11 @@ public class Room {
 	private int room_id;
 	private byte number_of_beds;
 	
-	@ManyToMany(cascade = CascadeType.ALL, mappedBy="reservation")
-	ArrayList<Reservation> reservations;
+	@ManyToMany(cascade = CascadeType.ALL, mappedBy="rooms")
+	List<Reservation> reservations = new ArrayList<Reservation>();
 
 	
-	public Room(int room_id, byte number_of_beds, ArrayList<Reservation> reservations) {
+	public Room(int room_id, byte number_of_beds, List<Reservation> reservations) {
 		super();
 		this.room_id = room_id;
 		this.number_of_beds = number_of_beds;
@@ -42,11 +44,11 @@ public class Room {
 		this.number_of_beds = number_of_beds;
 	}
 
-	public ArrayList<Reservation> getReservations() {
+	public List<Reservation> getReservations() {
 		return reservations;
 	}
 
-	public void setReservations(ArrayList<Reservation> reservations) {
+	public void setReservations(List<Reservation> reservations) {
 		this.reservations = reservations;
 	}
 	
