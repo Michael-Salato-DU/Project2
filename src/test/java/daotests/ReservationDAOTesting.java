@@ -25,16 +25,12 @@ public class ReservationDAOTesting {
 	@Test(priority = 1)
 	public void testGetAllReservations()
 	{
-		ArrayList<Reservation> testList= new ArrayList<Reservation>();
-		testList.add(reservation);
 		Assert.assertTrue(rd.GetAllReservations().size() >= 1);
 	}
 	
 	@Test(priority = 2)
 	public void testGetAllReservationsByCustomerId()
 	{
-		ArrayList<Reservation> testList = new ArrayList<Reservation>();
-		testList.add(reservation);
 		Assert.assertTrue(rd.getAllReservationsByCustomerId(-1).size() == 1);
 	}	
 	
