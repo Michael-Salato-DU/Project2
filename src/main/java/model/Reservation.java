@@ -41,6 +41,15 @@ public class Reservation {
 		this.end_date = end_date;
 		this.rooms = rooms;
 	}
+	
+	public Reservation()
+	{
+		super();
+		customer_id = -1;
+		start_date = 0;
+		end_date = 0;
+		
+	}
 
 	public int getReservation_id() {
 		return reservation_id;
