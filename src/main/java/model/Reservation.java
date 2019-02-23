@@ -1,14 +1,20 @@
 package model;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.Table;
 
 @Entity
+
 public class Reservation {
 	@Id
 	@GeneratedValue
@@ -18,7 +24,7 @@ public class Reservation {
 	private long end_date;
 
 	@ManyToMany(cascade = CascadeType.ALL)
-	private ArrayList<Room> rooms;
+	private List<Room> rooms = new ArrayList<Room>();
 
 	/**
 	 * @param reservation_id
@@ -27,7 +33,7 @@ public class Reservation {
 	 * @param end_date
 	 * @param rooms
 	 */
-	public Reservation(int reservation_id, int customer_id, long start_date, long end_date, ArrayList<Room> rooms) {
+	public Reservation(int reservation_id, int customer_id, long start_date, long end_date, List<Room> rooms) {
 		super();
 		this.reservation_id = reservation_id;
 		this.customer_id = customer_id;
@@ -60,11 +66,11 @@ public class Reservation {
 		this.end_date = end_date;
 	}
 
-	public ArrayList<Room> getRooms() {
+	public List<Room> getRooms() {
 		return rooms;
 	}
 
-	public void setRooms(ArrayList<Room> rooms) {
+	public void setRooms(List<Room> rooms) {
 		this.rooms = rooms;
 	}
 

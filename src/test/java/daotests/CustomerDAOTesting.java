@@ -1,21 +1,36 @@
 package daotests;
 
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
+import javax.persistence.Query;
+
+import org.hibernate.HibernateException;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 import org.testng.Assert;
+import org.testng.annotations.AfterSuite;
+import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
 
 import dao.CustomerDAO;
 import model.Customer;
 import model.Reservation;
 import service.CustomerService;
+import util.HibernateUtil;
 
 public class CustomerDAOTesting {
  
-	static ArrayList al = new ArrayList();
-	static Customer c = new Customer(0, "Laurence", "Roberts", "username", CustomerService.HashPassword("password"), "email@email.com", "999-000-0000", "12 Address Way", al);
+	static List<Reservation> al = new ArrayList<Reservation>();
+	static String password = CustomerService.HashPassword("password");
+	static Customer c = new Customer(0, "Laurence", "Roberts", "username", password, "email@email.com", "999-000-0000", "12 Address Way", al);
+	
 	static CustomerDAO cd = new CustomerDAO();
 	
+
 	@Test(priority = 0)
   public void testAddUser() 
   {
@@ -59,6 +74,23 @@ public class CustomerDAOTesting {
 	  c1.setAddress("13 Wanderer Way");
 	  c1.setFirst_name("Wayne");
 	  Assert.assertEquals(cd.UpdateUser(c1), true);
+  }
+  
+  @AfterSuite
+  public void deleteUser()
+  {
+	  try
+	  {
+		  SessionFactory sf = HibernateUtil.getSessionFactory();
+		  Session session = sf.openSession();
+		  Transaction transaction = session.beginTransaction();
+		  String hql = "delete from customer where username = 'username'";
+		  Query query = session.createQuery(hql);
+		  transaction.commit();
+	  } catch(HibernateException e)
+	  {
+		  e.printStackTrace();
+	  }
   }
   
 }

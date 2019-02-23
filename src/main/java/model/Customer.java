@@ -1,6 +1,8 @@
 package model;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -23,10 +25,10 @@ public class Customer {
 	private String address;
 	
 	@OneToMany
-	private ArrayList<Reservation> reservations;
+	private List<Reservation> reservations;
 	
 	public Customer(int customer_id, String first_name, String last_name, String username, String password,
-			String email, String phone_number, String address, ArrayList<Reservation> reservations) {
+			String email, String phone_number, String address, List<Reservation> al) {
 		super();
 		this.customer_id = customer_id;
 		this.first_name = first_name;
@@ -36,7 +38,7 @@ public class Customer {
 		this.email = email;
 		this.phone_number = phone_number;
 		this.address = address;
-		this.reservations = reservations;
+		this.reservations = al;
 	}
 
 	public int getCustomer_id() {
@@ -103,11 +105,11 @@ public class Customer {
 		this.address = address;
 	}
 
-	public ArrayList<Reservation> getReservations() {
+	public List<Reservation> getReservations() {
 		return reservations;
 	}
 
-	public void setReservations(ArrayList<Reservation> reservations) {
+	public void setReservations(List<Reservation> reservations) {
 		this.reservations = reservations;
 	}
 }
