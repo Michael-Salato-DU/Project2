@@ -23,12 +23,5 @@ public class ReservationService {
 		return rd.deleteReservation(reservation_id);
 	}
 	
-	public static Reservation getReservation(int reservation_id) {
-		return rd.getReservation(reservation_id);
-	}
 	
-	public static boolean MakeAReservation(Room r, Reservation rs)
-	{
-		return rd.MakeAReservation(r, rs);
-	}
 }

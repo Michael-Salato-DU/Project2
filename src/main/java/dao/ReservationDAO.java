@@ -76,25 +76,4 @@ public class ReservationDAO implements IReservation{
 		}
 	}
 
-	/**
-	 * returns a single reservation from the DB
-	 */
-	public Reservation getReservation(int reservation_id) {
-		
-		Session sess = sf.openSession();
-		sess.beginTransaction();
-		
-		Reservation reservation = sess.get(Reservation.class, reservation_id);
-		
-		sess.getTransaction().commit();
-		sess.close();
-		
-		return reservation;
-	}
-
-	public boolean MakeAReservation(Room r, Reservation rs) {
-		
-		return false;
-	}
-
 }
