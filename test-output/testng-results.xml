@@ -1,24 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" total="3" passed="3">
+<testng-results skipped="0" failed="0" total="4" passed="4">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="467" started-at="2019-02-23T19:41:42Z" finished-at="2019-02-23T19:41:43Z">
+  <suite name="Default suite" duration-ms="1241" started-at="2019-02-23T20:21:11Z" finished-at="2019-02-23T20:21:12Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="467" started-at="2019-02-23T19:41:42Z" finished-at="2019-02-23T19:41:43Z">
+    <test name="Default test" duration-ms="1241" started-at="2019-02-23T20:21:11Z" finished-at="2019-02-23T20:21:12Z">
       <class name="daotests.ReservationDAOTesting">
-        <test-method status="PASS" signature="testCreateReservation()[pri:0, instance:daotests.ReservationDAOTesting@5fd9b663]" name="testCreateReservation" duration-ms="339" started-at="2019-02-23T14:41:42Z" finished-at="2019-02-23T14:41:42Z">
+        <test-method status="PASS" signature="testCreateReservation()[pri:0, instance:daotests.ReservationDAOTesting@5fd9b663]" name="testCreateReservation" duration-ms="376" started-at="2019-02-23T15:21:11Z" finished-at="2019-02-23T15:21:11Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testCreateReservation -->
-        <test-method status="PASS" signature="testGetAllReservations()[pri:0, instance:daotests.ReservationDAOTesting@5fd9b663]" name="testGetAllReservations" duration-ms="67" started-at="2019-02-23T14:41:42Z" finished-at="2019-02-23T14:41:43Z">
+        <test-method status="PASS" signature="testGetAllReservations()[pri:1, instance:daotests.ReservationDAOTesting@5fd9b663]" name="testGetAllReservations" duration-ms="78" started-at="2019-02-23T15:21:11Z" finished-at="2019-02-23T15:21:11Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testGetAllReservations -->
-        <test-method status="PASS" signature="testGetAllReservationsByCustomerId()[pri:0, instance:daotests.ReservationDAOTesting@5fd9b663]" name="testGetAllReservationsByCustomerId" duration-ms="38" started-at="2019-02-23T14:41:43Z" finished-at="2019-02-23T14:41:43Z">
+        <test-method status="PASS" signature="testGetAllReservationsByCustomerId()[pri:2, instance:daotests.ReservationDAOTesting@5fd9b663]" name="testGetAllReservationsByCustomerId" duration-ms="36" started-at="2019-02-23T15:21:11Z" finished-at="2019-02-23T15:21:11Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testGetAllReservationsByCustomerId -->
+        <test-method status="PASS" signature="testDelete()[pri:3, instance:daotests.ReservationDAOTesting@5fd9b663]" name="testDelete" duration-ms="713" started-at="2019-02-23T15:21:11Z" finished-at="2019-02-23T15:21:12Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testDelete -->
       </class> <!-- daotests.ReservationDAOTesting -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
