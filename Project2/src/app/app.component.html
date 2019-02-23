@@ -43,10 +43,11 @@
 <!-- ------------------------------------------------------------------------------------ -->
 
 
-<div style="text-align:center">
+<div style="text-align:center" (onload) = "plzWork()">
   Arrival Date <input type="date" [min] = "today" [(ngModel)] = "startDate">
   Departure Date <input type="date" [value] = "startDate" [min] = "startDate" [(ngModel)] = "endDate"><br>
   <button (click) = "submitDates()" style="width:auto">Submit</button>
 </div>
+<h3>{{dformatted}}</h3>
 
 <router-outlet></router-outlet>
