@@ -30,9 +30,5 @@ public class ReservationService {
 		return rd.deleteReservation(reservation_id);
 	}
 	
-	
-	public static boolean MakeAReservation(Room r, Reservation rs)
-	{
-		return false;
-	}
+
 }
