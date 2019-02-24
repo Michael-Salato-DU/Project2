@@ -38,13 +38,12 @@ public class Reservation {
 	 * @param end_date
 	 * @param rooms
 	 */
-	public Reservation(int reservation_id, int customer_id, java.sql.Date start_date, java.sql.Date end_date, List<Room> rooms) {
+	public Reservation(int reservation_id, int customer_id, java.sql.Date start_date, java.sql.Date end_date) {
 		super();
 		this.reservation_id = reservation_id;
 		this.customer_id = customer_id;
 		this.start_date = start_date;
 		this.end_date = end_date;
-		this.rooms = rooms;
 	}
 	
 	public Reservation()
