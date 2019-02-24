@@ -28,7 +28,7 @@ public class Customer {
 	private List<Reservation> reservations;
 	
 	public Customer(int customer_id, String first_name, String last_name, String username, String password,
-			String email, String phone_number, String address, List<Reservation> al) {
+			String email, String phone_number, String address) {
 		super();
 		this.customer_id = customer_id;
 		this.first_name = first_name;
@@ -38,7 +38,6 @@ public class Customer {
 		this.email = email;
 		this.phone_number = phone_number;
 		this.address = address;
-		this.reservations = al;
 	}
 
 	public int getCustomer_id() {
