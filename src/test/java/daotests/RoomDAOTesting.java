@@ -12,6 +12,12 @@ public class RoomDAOTesting {
 	@Test
   public void testGetAllRooms()
   {
-	  Assert.assertTrue(rd.getRooms().size() >= 1);
+	  Assert.assertTrue(rd.getAvailableRooms("2018-11-15", "2018-11-15").size() >= 1);
+  }
+	
+  @Test
+  public void testGetAllRoomsFalse()
+  {
+	  Assert.assertFalse(rd.getAvailableRooms("2017-11-15", "2017-11-25").size() >= 1);
   }
 }

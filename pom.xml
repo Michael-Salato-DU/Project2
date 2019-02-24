@@ -72,9 +72,15 @@
 		<version>5.2.6.Final</version>
 	</dependency>
 	<dependency>
+
+    <groupId>com.h2database</groupId>
+    	<artifactId>h2</artifactId>
+    	<version>1.4.194</version>
+
     	<groupId>org.json</groupId>
     	<artifactId>json</artifactId>
     	<version>20180813</version>
+
 	</dependency>
   </dependencies>
   <build>

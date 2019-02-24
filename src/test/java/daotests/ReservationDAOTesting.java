@@ -12,7 +12,7 @@ import model.Reservation;
 public class ReservationDAOTesting {
   
 	static ArrayList al = new ArrayList();
-	static Reservation reservation = new Reservation(-1, -1, 111111, 222222, al);
+	static Reservation reservation = new Reservation(-1, -1, java.sql.Date.valueOf("2017-11-15"), java.sql.Date.valueOf("2017-11-25"), al);
 	static ReservationDAO rd = new ReservationDAO();
 	
 	
