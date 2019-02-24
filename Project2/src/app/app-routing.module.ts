@@ -7,7 +7,7 @@ import {DateSelectionComponent} from 'src/app/components/date-selection/date-sel
 const routes: Routes = [
   {path : 'register', component : RegisterComponent},
   {path : 'date-selection',component : DateSelectionComponent}
-
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
