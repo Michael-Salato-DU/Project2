@@ -1,9 +1,11 @@
 package model;
 
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
+import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -20,8 +22,10 @@ public class Reservation {
 	@GeneratedValue
 	private int reservation_id;
 	private int customer_id;
-	private long start_date;
-	private long end_date;
+	@Basic
+	private java.sql.Date start_date;
+	@Basic
+	private java.sql.Date end_date;
 
 	@ManyToMany(cascade = CascadeType.ALL)
 	private List<Room> rooms = new ArrayList<Room>();
@@ -33,7 +37,7 @@ public class Reservation {
 	 * @param end_date
 	 * @param rooms
 	 */
-	public Reservation(int reservation_id, int customer_id, long start_date, long end_date, List<Room> rooms) {
+	public Reservation(int reservation_id, int customer_id, java.sql.Date start_date, java.sql.Date end_date, List<Room> rooms) {
 		super();
 		this.reservation_id = reservation_id;
 		this.customer_id = customer_id;
@@ -46,8 +50,8 @@ public class Reservation {
 	{
 		super();
 		customer_id = -1;
-		start_date = 0;
-		end_date = 0;
+		start_date = java.sql.Date.valueOf("2017-11-15");
+		end_date = java.sql.Date.valueOf("2017-11-15");
 		
 	}
 
@@ -59,19 +63,19 @@ public class Reservation {
 		this.reservation_id = reservation_id;
 	}
 
-	public long getStart_date() {
+	public java.sql.Date getStart_date() {
 		return start_date;
 	}
 
-	public void setStart_date(long start_date) {
+	public void setStart_date(java.sql.Date start_date) {
 		this.start_date = start_date;
 	}
 
-	public long getEnd_date() {
+	public java.sql.Date getEnd_date() {
 		return end_date;
 	}
 
-	public void setEnd_date(long end_date) {
+	public void setEnd_date(java.sql.Date end_date) {
 		this.end_date = end_date;
 	}
 
