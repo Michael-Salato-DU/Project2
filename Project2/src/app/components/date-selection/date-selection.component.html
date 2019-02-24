@@ -3,6 +3,6 @@
   
   
   Arrival Date <input type="date" [min] = "today" [(ngModel)] = "startDate" [(ngModel)]= "update">
-  Departure Date <input type="date" [value] = "startDate.substring(0,8)+(+startDate.substring(8,10)+1)" [min] = "startDate.substring(0,8)+(+startDate.substring(8,10)+1)" [(ngModel)] = "endDate"><br>
+  Departure Date <input type="date" [value] = "startDate.substring(0,8)+(('0' + (+startDate.substring(8,10)+1)).slice(-2))" [min] = "startDate.substring(0,8)+(('0' + (+startDate.substring(8,10)+1)).slice(-2))" [(ngModel)] = "endDate"><br>
   <button (click) = "submitDates()" style="width:auto">Submit</button>
 </div>
