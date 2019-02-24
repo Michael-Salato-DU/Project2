@@ -1,8 +1,9 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { HttpClientModule } from '@angular/common/http';
 import { RegisterComponent } from 'src/app/components/register/register.component';
-import {DateSelectionComponent} from 'src/app/components/date-selection/date-selection.component'
+import {DateSelectionComponent} from 'src/app/components/date-selection/date-selection.component';
+import { HttpClientModule} from '@angular/common/http';
+
 
 const routes: Routes = [
   {path : 'register', component : RegisterComponent},
@@ -10,7 +11,8 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes),
+            HttpClientModule],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
