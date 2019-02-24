@@ -33,6 +33,6 @@ public class ReservationService {
 	
 	public static boolean MakeAReservation(Room r, Reservation rs)
 	{
-		return rd.MakeAReservation(r, rs);
+		return false;
 	}
 }

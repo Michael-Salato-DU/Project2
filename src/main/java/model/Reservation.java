@@ -1,5 +1,6 @@
 package model;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
@@ -20,8 +21,8 @@ public class Reservation {
 	@GeneratedValue
 	private int reservation_id;
 	private int customer_id;
-	private long start_date;
-	private long end_date;
+	private java.time.LocalDate start_date;
+	private java.time.LocalDate end_date;
 
 	@ManyToMany(cascade = CascadeType.ALL)
 	private List<Room> rooms = new ArrayList<Room>();
@@ -33,7 +34,7 @@ public class Reservation {
 	 * @param end_date
 	 * @param rooms
 	 */
-	public Reservation(int reservation_id, int customer_id, long start_date, long end_date, List<Room> rooms) {
+	public Reservation(int reservation_id, int customer_id, java.time.LocalDate start_date, java.time.LocalDate end_date, List<Room> rooms) {
 		super();
 		this.reservation_id = reservation_id;
 		this.customer_id = customer_id;
@@ -46,8 +47,8 @@ public class Reservation {
 	{
 		super();
 		customer_id = -1;
-		start_date = 0;
-		end_date = 0;
+		start_date = LocalDate.parse("2-31-1999");
+		end_date = LocalDate.parse("1-1-2000");
 		
 	}
 
@@ -59,19 +60,19 @@ public class Reservation {
 		this.reservation_id = reservation_id;
 	}
 
-	public long getStart_date() {
+	public java.time.LocalDate getStart_date() {
 		return start_date;
 	}
 
-	public void setStart_date(long start_date) {
+	public void setStart_date(java.time.LocalDate start_date) {
 		this.start_date = start_date;
 	}
 
-	public long getEnd_date() {
+	public java.time.LocalDate getEnd_date() {
 		return end_date;
 	}
 
-	public void setEnd_date(long end_date) {
+	public void setEnd_date(java.time.LocalDate end_date) {
 		this.end_date = end_date;
 	}
 

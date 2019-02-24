@@ -90,9 +90,5 @@ public class ReservationDAO implements IReservation{
 		ArrayList<Reservation> arrayListOfReservations= new ArrayList<Reservation>(reservations);
 		return arrayListOfReservations;
 	}
-	public boolean MakeAReservation(Room r, Reservation rs) {
-		
-		return false;
-	}
 
 }
