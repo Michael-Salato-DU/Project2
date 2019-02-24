@@ -113,7 +113,7 @@ public class WebService {
 		String end_date = request.getParameter("end_Date");
 		RoomDAO rd = new RoomDAO();
 		ArrayList<Room> al = new ArrayList<Room>();
-		al = rd.getAvailableRooms();
+		//al = rd.getAvailableRooms();
 		ObjectMapper om = new ObjectMapper();
 		try
 		{
