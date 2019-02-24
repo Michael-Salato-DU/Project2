@@ -1,6 +1,7 @@
 package model;
 
 import java.sql.Date;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
@@ -51,8 +52,7 @@ public class Reservation {
 		super();
 		customer_id = -1;
 		start_date = java.sql.Date.valueOf("2017-11-15");
-		end_date = java.sql.Date.valueOf("2017-11-15");
-		
+		end_date = java.sql.Date.valueOf("2017-11-15");		
 	}
 
 	public int getReservation_id() {

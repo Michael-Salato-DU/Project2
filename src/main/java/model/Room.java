@@ -21,11 +21,10 @@ public class Room {
 	List<Reservation> reservations = new ArrayList<Reservation>();
 
 	
-	public Room(int room_id, byte number_of_beds, List<Reservation> reservations) {
+	public Room(int room_id, byte number_of_beds) {
 		super();
 		this.room_id = room_id;
 		this.number_of_beds = number_of_beds;
-		this.reservations = reservations;
 	}
 
 	public int getRoom_id() {
