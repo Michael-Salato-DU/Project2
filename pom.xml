@@ -9,9 +9,12 @@
   <url>http://maven.apache.org</url>
   <properties>
     <failOnMissingWebXml>false</failOnMissingWebXml>
+
     <maven.compiler.source>1.8</maven.compiler.source>
-	<maven.compiler.target>1.8</maven.compiler.target>
-  </properties>
+		<maven.compiler.target>1.8</maven.compiler.target>
+	</properties>
+  
+  
 
   <dependencies>
     <dependency>
@@ -85,6 +88,7 @@
     	<version>20180813</version>
 	</dependency>
   </dependencies>
+    
   <build>
     <finalName>Project2</finalName>
   </build>
