@@ -24,7 +24,6 @@ import util.HibernateUtil;
 
 public class CustomerDAOTesting {
  
-	static List<Reservation> al = new ArrayList<Reservation>();
 	static String password = CustomerService.HashPassword("password");
 	static Customer c = new Customer(0, "Laurence", "Roberts", "username", password, "email@email.com", "999-000-0000", "12 Address Way");
 	
