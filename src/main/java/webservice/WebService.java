@@ -98,8 +98,8 @@ public class WebService {
 	
 	public static void login(HttpServletRequest request, HttpServletResponse response)
 	{
-		String username = request.getParameter("uname");
-		String password = request.getParameter("pass");
+		String username = request.getParameter("username");
+		String password = request.getParameter("password");
 		String hashedPassword = CustomerService.HashPassword(password);
 		boolean loggedIn = CustomerService.Login(username, hashedPassword);
 		ObjectMapper om = new ObjectMapper();
