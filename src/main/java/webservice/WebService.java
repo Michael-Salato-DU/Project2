@@ -24,6 +24,7 @@ public class WebService {
 	
 	public static void register (HttpServletRequest request, HttpServletResponse response)
 	{
+
 		String first_name = request.getParameter("first_name");
 		String last_name = request.getParameter("last_name");
 		String username = request.getParameter("username");
@@ -134,6 +135,8 @@ public class WebService {
 		String end_date = request.getParameter("end_Date");
 		RoomDAO rd = new RoomDAO();
 		ArrayList<Room> al = new ArrayList<Room>();
+//		al = rd.getAvailableRooms();
+
 		al = rd.getAvailableRooms(start_date, end_date);
 		ObjectMapper om = new ObjectMapper();
 		try
