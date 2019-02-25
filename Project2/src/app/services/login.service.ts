@@ -8,8 +8,7 @@ export class LoginService {
 
   // within constructor ( private http:HttpClient )
   constructor() { }
-  uname: string;
-  psw: string;
+
   
   sendLogin(uname:string, psw: string){
 
