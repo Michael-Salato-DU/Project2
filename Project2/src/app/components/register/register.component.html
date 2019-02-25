@@ -8,29 +8,29 @@
       <p>Please fill in this form to create an account.</p>
       <hr>
       <label for="name"><b>Name</b></label>
-      <input type="text" placeholder="first" name="first_name" required>
-      <input type="text" placeholder="last" name="last_name" required>
+      <input type="text" placeholder="first" id="first_name" >
+      <input type="text" placeholder="last" id="last_name" >
 
       <label for="email"><b>Email</b></label>
-      <input type="text" placeholder="Enter Email" name="email" required>
+      <input type="text" placeholder="Enter Email" id="email">
 
       <label for="phone"><b>Phone</b></label>
-      <input type="text" placeholder="Phone Number" name="phone_number" required>
+      <input type="text" placeholder="Phone Number" id="phone_number" >
       
       <label for="address"><b>Address</b></label>
-      <input type="text" placeholder="Address" name="address" required>
+      <input type="text" placeholder="Address" id="address" required>
 
       <label for="username"><b>Username</b></label>
-      <input type="text" placeholder="Username" name="username" required>
+      <input type="text" placeholder="Username" id="username" required>
 
       <label for="psw"><b>Password</b></label>
-      <input type="password" placeholder="Enter Password" name="psw" required>
+      <input type="password" placeholder="Enter Password" id="rpsw" >
 
       <label for="psw-repeat"><b>Repeat Password</b></label>
-      <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
+      <input type="password" placeholder="Repeat Password" id="rpsw-repeat" >
       <hr>
   
-      <button type="submit" class="registerbtn">Register</button>
+      <button (click)="register()" class="registerbtn">Register</button>
     </div>
     
     <div class="container signin">

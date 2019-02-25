@@ -9,11 +9,13 @@
   <url>http://maven.apache.org</url>
   <properties>
     <failOnMissingWebXml>false</failOnMissingWebXml>
-		<maven.compiler.source>1.8</maven.compiler.source>
+
+    <maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
 	</properties>
   
   
+
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
@@ -76,8 +78,7 @@
 		<version>5.2.6.Final</version>
 	</dependency>
 	<dependency>
-
-    <groupId>com.h2database</groupId>
+		 <groupId>com.h2database</groupId>
     	<artifactId>h2</artifactId>
     	<version>1.4.194</version>
 	</dependency>
@@ -85,8 +86,7 @@
     	<groupId>org.json</groupId>
     	<artifactId>json</artifactId>
     	<version>20180813</version>
-</dependency>
-	
+	</dependency>
   </dependencies>
     
   <build>
