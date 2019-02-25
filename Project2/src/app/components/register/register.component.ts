@@ -15,6 +15,7 @@ export class RegisterComponent implements OnInit {
   ngOnInit() {
 
   }
+  
   newCustomer :Customer;
   first_name :string;
   last_name :string;
@@ -23,6 +24,7 @@ export class RegisterComponent implements OnInit {
   email :string;
   phone_number :string;
   address :string;
+
   register(){
     // console.log((<HTMLSelectElement>document.getElementById('first_name')).value);
     this.first_name = (<HTMLSelectElement>document.getElementById('first_name')).value;
@@ -33,8 +35,7 @@ export class RegisterComponent implements OnInit {
     this.phone_number = (<HTMLSelectElement>document.getElementById('phone_number')).value;
     this.address = (<HTMLSelectElement>document.getElementById('address')).value;
     this.newCustomer = new Customer(0,this.first_name, this.last_name, this.username, this.password,this.email, this.phone_number, this.address);
-    console.log(this.newCustomer);
-    // this.rs.sendRegister(this.newCustomer);
+    this.rs.sendRegister(this.newCustomer);
   }
 
 }

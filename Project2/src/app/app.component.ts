@@ -8,7 +8,7 @@ import {LoginService} from 'src/app/services/login.service';
 })
 export class AppComponent implements OnInit{
 
-  constructor(private loginserivce: LoginService) {}
+  constructor() {}
 
 
 
@@ -19,9 +19,7 @@ export class AppComponent implements OnInit{
   title = 'BADS Hotel';
 
 
-   login(){
-    this.loginserivce.login();
-  }
+
 }
 
 
