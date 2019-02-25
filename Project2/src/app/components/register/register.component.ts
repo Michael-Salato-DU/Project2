@@ -26,8 +26,6 @@ export class RegisterComponent implements OnInit {
   register(){
     // console.log((<HTMLSelectElement>document.getElementById('first_name')).value);
     this.first_name = (<HTMLSelectElement>document.getElementById('first_name')).value;
-    console.log(this.first_name);
-    this.newCustomer.first_name = this.first_name;
     this.last_name  = (<HTMLSelectElement>document.getElementById('last_name')).value;
     this.username = (<HTMLSelectElement>document.getElementById('username')).value;
     this.password = (<HTMLSelectElement>document.getElementById('rpsw')).value;
