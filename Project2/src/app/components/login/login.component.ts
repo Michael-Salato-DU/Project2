@@ -14,7 +14,7 @@ export class LoginComponent implements OnInit {
   uname: string;
   psw: string;
   login(){
-    if(this.uname.length < 6 || this.psw.length < 6){
+    if(this.uname.length < 4 || this.psw.length < 4){
       alert("Information not long enough");
     }
     else{

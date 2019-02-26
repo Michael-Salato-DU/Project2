@@ -18,11 +18,7 @@ export class LoginService {
   constructor(private http :HttpClient) { }
 
 
-  sendLogin(uname:string, psw: string):Observable<Customer>{
-    // this.lCustomer.first_name = uname;
-    // console.log("psw: " + this.lCustomer.password);
-    // console.log("name: " +this.lCustomer.first_name);
-
-    return this.http.get<Customer>(this.registerUrl + "?username="+uname + "&password="+psw, this.httpOptions);
+  sendLogin(uname:string, psw: string):Observable<string>{
+    return this.http.post<string>(this.registerUrl , "?username="+uname + "&password="+psw, this.httpOptions);
   }
 }
