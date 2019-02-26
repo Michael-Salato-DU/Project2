@@ -30,7 +30,7 @@ public class CustomerDAO implements ICustomer{
 		try {
 			Session sess = sf.openSession();
 			sess.beginTransaction();
-			sess.persist(c);
+			sess.save(c);
 			
 			sess.getTransaction().commit();
 			sess.close();
@@ -50,17 +50,18 @@ public class CustomerDAO implements ICustomer{
 	 */
 	public Customer getCustomer(String username) {
 		
+		Customer c = new Customer();
 		try {
 			Session sess = sf.openSession();
 			sess.beginTransaction();
-			
-			Customer customer = sess.get(Customer.class, username);
-			sess.getTransaction().commit();
-			
+			Criteria criteria = sess.createCriteria(Customer.class);
+			Criterion selectUsername = Restrictions.like("username", username);
+			criteria.add(selectUsername);
+			Customer customer = (Customer)criteria.uniqueResult();			
 			return customer;
 		}catch(HibernateException e) {
 			e.printStackTrace();
-			return null;
+			return c;
     }
   }
   
@@ -68,8 +69,8 @@ public class CustomerDAO implements ICustomer{
 		Session sess = sf.openSession();
 		sess.beginTransaction();
 		Criteria crit = sess.createCriteria(Customer.class);
-		Criterion selectUsername = Restrictions.like("username", "%"+username+"%");
-		Criterion selectPassword = Restrictions.like("password", "%"+password+"%");
+		Criterion selectUsername = Restrictions.like("username", username);
+		Criterion selectPassword = Restrictions.like("password", password);
 		Criterion condition = Restrictions.and(selectUsername, selectPassword);
 		crit.add(condition);
 		List results = crit.list();
@@ -94,7 +95,7 @@ public class CustomerDAO implements ICustomer{
 		{
 			Session sess = sf.openSession();
 			sess.beginTransaction();
-			sess.saveOrUpdate(c);
+			sess.update(c);
 			sess.getTransaction().commit();
 			sess.close();
 			return true;
