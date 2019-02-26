@@ -32,7 +32,7 @@ public class WebService {
 		String email = request.getParameter("email");
 		String phone_number = request.getParameter("phone");
 		String address = request.getParameter("address");
-		String hashedPassword = CustomerService.HashPassword(password);
+		String hashedPassword = CustomerService.hashPassword(password);
 		Customer c = new Customer(0, first_name, last_name, username, hashedPassword, email, phone_number, address);
 		CustomerService.addUser(c);	
 		ObjectMapper om = new ObjectMapper();
@@ -100,7 +100,7 @@ public class WebService {
 	{
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
-		String hashedPassword = CustomerService.HashPassword(password);
+		String hashedPassword = CustomerService.hashPassword(password);
 		boolean loggedIn = CustomerService.Login(username, hashedPassword);
 		ObjectMapper om = new ObjectMapper();
 		if(loggedIn == true)
