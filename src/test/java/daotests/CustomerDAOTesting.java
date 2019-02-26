@@ -24,7 +24,7 @@ import util.HibernateUtil;
 
 public class CustomerDAOTesting {
  
-	static String password = CustomerService.HashPassword("password");
+	static String password = CustomerService.hashPassword("password");
 	static Customer c = new Customer(0, "Laurence", "Roberts", "username", password, "email@email.com", "999-000-0000", "12 Address Way");
 	
 	static CustomerDAO cd = new CustomerDAO();
@@ -54,7 +54,7 @@ public class CustomerDAOTesting {
   public void LoginWithValidCredentials()
   {
 	  String username = "username";
-	  String password = CustomerService.HashPassword("password");
+	  String password = CustomerService.hashPassword("password");
 	  Assert.assertEquals(cd.Login(username, password), true);
   }
   
@@ -62,7 +62,7 @@ public class CustomerDAOTesting {
   public void LoginWithInvalidCredentials()
   {
 	  String username = "NOT A USERNAME";
-	  String password = CustomerService.HashPassword("password");
+	  String password = CustomerService.hashPassword("password");
 	  Assert.assertEquals(cd.Login(username, password), false);
   }
   
