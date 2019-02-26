@@ -1,5 +1,11 @@
 package service;
 
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+
+import javax.crypto.SecretKeyFactory;
+import javax.crypto.spec.PBEKeySpec;
+
 import dao.CustomerDAO;
 import model.Customer;
 
@@ -28,8 +34,34 @@ public class CustomerService {
 	 * @param password
 	 * @return
 	 */
-	public static String HashPassword(String password)
+	//Code 'borrowed' from Howtodoinjava.com//
+	
+	public static String hashPassword(String password)
 	{
-		return null;
-	}
+		String hashedPassword = null;
+		
+		try {
+			// Create MessageDigest instance for MD5
+			MessageDigest md = MessageDigest.getInstance("MD5");
+			//Add password bytes to digest
+			md.update(password.getBytes());
+			//Get the hash's bytes
+			byte[] bytes = md.digest();
+			//This bytes[] has bytes in decimal format;
+			//Convert it to hexadecimal format
+			StringBuilder sb = new StringBuilder();
+			for(int i=0; i< bytes.length ;i++)
+			{
+				sb.append(Integer.toString((bytes[i] & 0xff) + 0x100, 16).substring(1));
+			}
+			//Get complete hashed password in hex format
+			hashedPassword = sb.toString();
+			return hashedPassword;
+    }
+    catch (NoSuchAlgorithmException e)
+    {
+        e.printStackTrace();
+        return hashedPassword;
+    }
+}
 }
