@@ -39,6 +39,26 @@ public class Customer {
 		this.phone_number = phone_number;
 		this.address = address;
 	}
+	
+	public Customer()
+	{
+		super();
+		customer_id = -1;
+		first_name = "first_name";
+		last_name = "last_name";
+		username = "USERNAMEUSERNAME";
+		password = "password";
+		email = "email@email.com";
+		phone_number = "phone_number";
+		address = "address";
+	}
+
+	@Override
+	public String toString() {
+		return "Customer [first_name=" + first_name + ", last_name=" + last_name + ", username=" + username
+				+ ", password=" + password + ", email=" + email + ", phone_number=" + phone_number + ", address="
+				+ address + "]";
+	}
 
 	public int getCustomer_id() {
 		return customer_id;

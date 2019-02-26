@@ -40,7 +40,8 @@ public class CustomerDAOTesting {
   public void testGetCustomerExisitingUsername()
   {
 	  String username = "username";
-	  Assert.assertEquals(cd.getCustomer(username), c);
+	  Customer customer = cd.getCustomer(username);
+	  Assert.assertEquals(customer.toString(), c.toString());
   }
   
   @Test (priority = 1)
@@ -83,7 +84,7 @@ public class CustomerDAOTesting {
 		  SessionFactory sf = HibernateUtil.getSessionFactory();
 		  Session session = sf.openSession();
 		  Transaction transaction = session.beginTransaction();
-		  String hql = "delete from customer where username = 'username'";
+		  String hql = "delete from Customer where username = 'username'";
 		  Query query = session.createQuery(hql);
 		  transaction.commit();
 	  } catch(HibernateException e)

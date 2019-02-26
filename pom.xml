@@ -87,6 +87,12 @@
     	<artifactId>json</artifactId>
     	<version>20180813</version>
 	</dependency>
+	<dependency>
+   		<groupId>org.codehaus.mojo</groupId>
+    	<artifactId>animal-sniffer-annotations</artifactId>
+    	<version>1.14</version>
+    	<scope>provided</scope>
+	</dependency>
   </dependencies>
     
   <build>
