@@ -1,33 +1,30 @@
-<p>
-  register !
-</p>
+
 <div class ="col-span-8">
-  <form action="/action_page.php">
     <div class="container">
       <h1>Register</h1>
       <p>Please fill in this form to create an account.</p>
       <hr>
       <label for="name"><b>Name</b></label>
-      <input type="text" placeholder="first" id="first_name" >
-      <input type="text" placeholder="last" id="last_name" >
+      <input type="text" placeholder="first" [(ngModel)] = "first_name" >
+      <input type="text" placeholder="last" [(ngModel)] = "last_name" >
 
       <label for="email"><b>Email</b></label>
-      <input type="text" placeholder="Enter Email" id="email">
+      <input type="text" placeholder="Enter Email" [(ngModel)] = "email">
 
       <label for="phone"><b>Phone</b></label>
-      <input type="text" placeholder="Phone Number" id="phone_number" >
+      <input type="text" placeholder="Phone Number" [(ngModel)] = "phone_number" >
       
       <label for="address"><b>Address</b></label>
-      <input type="text" placeholder="Address" id="address" required>
+      <input type="text" placeholder="Address" [(ngModel)] = "address" required>
 
       <label for="username"><b>Username</b></label>
-      <input type="text" placeholder="Username" id="username" required>
+      <input type="text" placeholder="Username" [(ngModel)] = "username" required>
 
       <label for="psw"><b>Password</b></label>
-      <input type="password" placeholder="Enter Password" id="rpsw" >
+      <input type="password" placeholder="Enter Password" [(ngModel)] = "password" >
 
       <label for="psw-repeat"><b>Repeat Password</b></label>
-      <input type="password" placeholder="Repeat Password" id="rpsw-repeat" >
+      <input type="password" placeholder="Repeat Password" [(ngModel)] = "rpsw-repeat" >
       <hr>
   
       <button (click)="register()" class="registerbtn">Register</button>
@@ -36,5 +33,4 @@
     <div class="container signin">
       <p>Already have an account? <a href="/">Sign in</a>.</p>
     </div>
-  </form>
 </div>
