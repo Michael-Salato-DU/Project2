@@ -67,12 +67,14 @@ public class CustomerDAO implements ICustomer{
   
 	public boolean Login(String username, String password) {
 		Session sess = sf.openSession();
+		sess.beginTransaction();
 		Criteria crit = sess.createCriteria(Customer.class);
 		Criterion selectUsername = Restrictions.like("username", username);
 		Criterion selectPassword = Restrictions.like("password", password);
 		Criterion condition = Restrictions.and(selectUsername, selectPassword);
 		crit.add(condition);
 		List results = crit.list();
+		sess.close();
 		if (results.size() == 1)
 		{
 			return true;
