@@ -66,7 +66,7 @@ public class CustomerDAO implements ICustomer{
     }
   }
   
-	public boolean Login(String username, String password) {
+	public Customer Login(String username, String password) {
 		Session sess = sf.openSession();
 		sess.beginTransaction();
 		Criteria crit = sess.createCriteria(Customer.class);
@@ -79,12 +79,14 @@ public class CustomerDAO implements ICustomer{
 		if (results.size() == 1)
 		{
 			sess.close();
-			return true;
+			Customer customer =(Customer) results.get(0);
+			return customer;
 		} 
 		else
 		{
 			sess.close();
-			return false;
+			Customer customer1 = new Customer();
+			return customer1;
 		}
 	}
   

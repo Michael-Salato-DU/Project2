@@ -101,14 +101,13 @@ public class WebService {
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
 		String hashedPassword = CustomerService.hashPassword(password);
-		boolean loggedIn = CustomerService.Login(username, hashedPassword);
+		Customer loggedIn = CustomerService.Login(username, hashedPassword);
 		ObjectMapper om = new ObjectMapper();
-		if(loggedIn == true)
+		if(loggedIn.getCustomer_id() != -1)
 		{
 			try
 			{
-				String message = "You have logged in";
-				String jsonString = om.writeValueAsString(message);
+				String jsonString = om.writeValueAsString(loggedIn);
 				response.getWriter().append(jsonString).close();
 			} catch (IOException e)
 			{

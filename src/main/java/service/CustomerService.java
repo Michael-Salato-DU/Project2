@@ -16,8 +16,9 @@ public class CustomerService {
 	public static boolean addUser(Customer c) {
 		return cd.addUser(c);
 	}
+	
+	public static Customer Login (String username, String password) {
 
-	public static boolean Login(String username, String password) {
 		return cd.Login(username, password);
 	}
 
