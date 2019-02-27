@@ -88,6 +88,7 @@ public class ReservationDAO implements IReservation{
 		criteria.add(byUsername);
 		List reservations = criteria.list();
 		ArrayList<Reservation> arrayListOfReservations= new ArrayList<Reservation>(reservations);
+		session.close();
 		return arrayListOfReservations;
 	}
 

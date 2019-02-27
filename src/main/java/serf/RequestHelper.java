@@ -14,6 +14,8 @@ public class RequestHelper
 		{
 			case "/Project2/register.do" : {WebService.register(request, response);break;}
 			case "/Project2/login.do" : {WebService.login(request, response);break;}
+			case "/Project2/makeAReservation.do" : {WebService.makeAReservation(request, response);break;}
+			case "/Project2/getAvailableRooms.do" : {WebService.getAvailableRooms(request, response);break;}
 		}
 	}
 }

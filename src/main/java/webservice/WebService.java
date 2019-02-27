@@ -19,6 +19,7 @@ import model.Reservation;
 import model.Room;
 import service.CustomerService;
 import service.ReservationService;
+import service.RoomService;
 
 public class WebService {
 	
@@ -49,31 +50,30 @@ public class WebService {
 	
 	public static void makeAReservation(HttpServletRequest request, HttpServletResponse response)
 	{
-		
+		System.out.println("IN MAKE A RESERVATION METHOD");
 		//Grabs parameters from front end.
 		String start_dateString = request.getParameter("start_Date");
 		String end_dateString = request.getParameter("end_Date");
 		java.sql.Date start_date = java.sql.Date.valueOf(start_dateString);
 		java.sql.Date end_date = java.sql.Date.valueOf(end_dateString);
+		String username = request.getParameter("username");
 		//used to set up for loop for iterating over room objects
 		String rooms = request.getParameter("rooms");
 		String[] roomsArray = rooms.split(",");
 		ArrayList<Room> roomList = new ArrayList<Room>();
 		//gets room objects from JSON input
-		JSONObject room = new JSONObject(rooms);
 		//iterates over the number of rooms passed in from the front end
 		for(int index = 0; index < roomsArray.length; index++)
 		{
-			String room_id = room.getString("room_id");
-			String number_of_beds = room.getString("number_of_beds");
-			Room roomObj = new Room(Integer.parseInt(room_id), Byte.parseByte(number_of_beds));
-			roomList.add(roomObj);
+			int room_id = Integer.parseInt(roomsArray[index]);
+			Room room = RoomService.getRoomById(room_id);
+			roomList.add(room);
 		}
 		
 		//gets customer_id of the customer reserving the room
 		Customer customer = CustomerService.getCustomer("username");
 		int customer_id = customer.getCustomer_id();
-		//sets up reservaton to be passed to createReservation method
+		//sets up reservation to be passed to createReservation method
 		Reservation reservation  = new Reservation(0, customer_id, start_date, end_date);
 		reservation.setRooms(roomList);
 		//creates Reservation

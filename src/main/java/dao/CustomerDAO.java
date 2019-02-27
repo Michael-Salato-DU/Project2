@@ -57,7 +57,8 @@ public class CustomerDAO implements ICustomer{
 			Criteria criteria = sess.createCriteria(Customer.class);
 			Criterion selectUsername = Restrictions.like("username", username);
 			criteria.add(selectUsername);
-			Customer customer = (Customer)criteria.uniqueResult();			
+			Customer customer = (Customer)criteria.uniqueResult();	
+			sess.close();
 			return customer;
 		}catch(HibernateException e) {
 			e.printStackTrace();
@@ -75,10 +76,12 @@ public class CustomerDAO implements ICustomer{
 		List results = crit.list();
 		if (results.size() == 1)
 		{
+			sess.close();
 			return true;
 		} 
 		else
 		{
+			sess.close();
 			return false;
 		}
 	}

@@ -39,4 +39,11 @@ public class RoomDAOTesting {
   {
 	  Assert.assertTrue(rmd.getAvailableRooms("2011-11-15", "2011-11-25").size() == 19);
   }
+  
+  @Test
+  public void testGetRoom()
+  {
+	  Room room = new Room(0, (byte)1);
+	  Assert.assertEquals(rmd.getRoom(0).toString(), room.toString());
+  }
 }

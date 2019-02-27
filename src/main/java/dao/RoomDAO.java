@@ -5,10 +5,14 @@ import java.util.List;
 import java.util.TimeZone;
 
 import org.hibernate.Criteria;
+import org.hibernate.HibernateException;
 import org.hibernate.SQLQuery;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.criterion.Criterion;
+import org.hibernate.criterion.Restrictions;
 
+import model.Customer;
 import model.Reservation;
 import model.Room;
 import util.HibernateUtil;
@@ -55,6 +59,24 @@ public class RoomDAO implements IRoom{
 		
 		session.close();
 		return new ArrayList<Room>(rooms);
+	}
+	
+	public Room getRoom(int room_id)
+	{
+		Room room = new Room();
+		try {
+			Session session = sf.openSession();
+			session.beginTransaction();
+			Criteria criteria = session.createCriteria(Room.class);
+			Criterion selectRoom = Restrictions.eq("room_id", room_id);
+			criteria.add(selectRoom);
+			room = (Room)criteria.uniqueResult();
+			session.close();
+			return room;
+		}catch(HibernateException e) {
+			e.printStackTrace();
+			return room;
+		}
 	}
 
 }

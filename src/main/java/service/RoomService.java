@@ -13,4 +13,11 @@ public class RoomService {
 		ArrayList<Room> rooms = rd.getAvailableRooms(start_date, end_date);
 		return rooms;
 	}
+	
+	public static Room getRoomById(int room_id)
+	{
+		RoomDAO rd = new RoomDAO();
+		Room room = rd.getRoom(room_id);
+		return room;
+	}
 }
