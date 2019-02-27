@@ -10,6 +10,9 @@ export class ReservationComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-  }
 
+  }
+  
+  day :Date = new Date();
+  
 }

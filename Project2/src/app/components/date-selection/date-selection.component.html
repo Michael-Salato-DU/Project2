@@ -1,6 +1,7 @@
-
-<div style="text-align:center;">
-  Arrival Date <input type="date" [min] = "today" [(ngModel)] = "startDate" [(ngModel)]= "update">
-  Departure Date <input type="date" [value] = "startDate.substring(0,8)+(('0' + (+startDate.substring(8,10)+1)).slice(-2))" [min] = "startDate.substring(0,8)+(('0' + (+startDate.substring(8,10)+1)).slice(-2))" [(ngModel)] = "endDate"><br>
-  <button (click) = "submitDates()" style="width:auto">Submit</button>
+<div class="container">
+  <div class="row">
+    <div class = "col-sm-4"><p>Arrival Date</p><input type="date" min = "{{today | date:'yyyy-MM-dd'}}" [(ngModel)] = "startDate" ></div>
+    <div class = "col-sm-4"><p>Departure Date</p><input type="date" min = "{{tomorrow | date:'yyyy-MM-dd'}}" [(ngModel)] = "endDate" ></div>
+    <div class= "co-sm-4"><button (click)="submitDates()" type="button" class="btn btn-primary">Reserve my Room</button></div>
+  </div>
 </div>
