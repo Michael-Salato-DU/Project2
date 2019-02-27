@@ -20,13 +20,13 @@ export class ReservationService {
     })
   };
 
-  getReservations(start :Date, end :Date):Observable<Array<Room>>{
+  getReservations(start :Date, end :Date):any{
     console.log("getting reservations: " + start +"\n" + end);
     return this.http.post<Array<Room>>(this.getAvailableRoomsUrl, "?start_Date="+start + "&end_Date="+end, this.httpOptions);
   }
 
-  makeAReservation(start :Date, end :Date):Observable<Array<Room>>{
-    console.log("making reservation: " + start +"\n" + end);
+  makeAReservation(start :Date, end :Date):any{
+    console.log("making reservation: (return is null)" + start +"\n" + end);
     return null;
   }
 

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ReservationService } from 'src/app/services/reservation.service'
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-date-selection',
@@ -10,24 +11,29 @@ export class DateSelectionComponent implements OnInit {
 
   constructor(private rs :ReservationService) { }
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
+
   today :Date = new Date();
   tomorrow :Date = new Date(this.today.getTime() + (1000 * 60 * 60 * 24));
-  startDate :Date = new Date();
+  startDate :Date;
   endDate :Date;
-  submitDates() {
-    if( this.endDate == null){
-      alert("enddate not picked");
+  message :string;
+
+  submitDates() :any {
+    if( this.endDate == null || this.startDate == null){
+      // alert("enddate not picked");
+      this.message = "You must pick both arrival and departure.";
     }
     else if( this.endDate < this.startDate){
-      alert("endDate greater than StartDate");
+      this.message = "You cannot arrive after you leave."; 
     }
     else if ( this.endDate == this.startDate){
-      alert("you must depart on at least the next day")
+      this.message = "You must depart on at least the next day.";
     }
     else if ( this.startDate < this.endDate){
-      this.rs.getReservations(this.startDate, this.endDate);
+      return this.rs.getReservations(this.startDate, this.endDate)
+      .subscribe(response=>{console.log("successful response:"+JSON.parse(response))},
+      response=>{console.log("unsuccessful response:"+JSON.parse(response))});
     }
   }
 }
