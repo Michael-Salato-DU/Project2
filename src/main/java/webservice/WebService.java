@@ -52,7 +52,7 @@ public class WebService {
 		
 		//Grabs parameters from front end.
 		String start_dateString = request.getParameter("start_Date");
-		String end_dateString = request.getParameter("end_Date");
+		String end_dateString = request.getParameter("end Date");
 		java.sql.Date start_date = java.sql.Date.valueOf(start_dateString);
 		java.sql.Date end_date = java.sql.Date.valueOf(end_dateString);
 		//used to set up for loop for iterating over room objects
