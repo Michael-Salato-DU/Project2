@@ -12,15 +12,22 @@ export class ReservationService {
 
   constructor(private http :HttpClient) { }
   getAvailableRoomsUrl :string  = "http://ec2-52-15-141-97.us-east-2.compute.amazonaws.com:8080/Project2/getAvailableRooms.do";
+  createAReservationUrl :string;
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type':  'application/x-www-form-urlencoded',
       'X-Requested-With': 'XMLHttpRequest'
     })
   };
-  
+
   getReservations(start :Date, end :Date):Observable<Array<Room>>{
-    console.log(start +"\n" + end);
-    return this.http.post<Array<Room>>(this.getAvailableRoomsUrl, "?start="+start + "end="+end, this.httpOptions);
+    console.log("getting reservations: " + start +"\n" + end);
+    return this.http.post<Array<Room>>(this.getAvailableRoomsUrl, "?start_Date="+start + "&end_Date="+end, this.httpOptions);
   }
+
+  makeAReservation(start :Date, end :Date):Observable<Array<Room>>{
+    console.log("making reservation: " + start +"\n" + end);
+    return null;
+  }
+
 }
