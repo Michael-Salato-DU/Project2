@@ -8,6 +8,9 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.hibernate.HibernateException;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 import org.json.JSONObject;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -20,6 +23,7 @@ import model.Room;
 import service.CustomerService;
 import service.ReservationService;
 import service.RoomService;
+import util.HibernateUtil;
 
 public class WebService {
 	
@@ -98,6 +102,7 @@ public class WebService {
 	
 	public static void login(HttpServletRequest request, HttpServletResponse response)
 	{
+		SessionFactory sf = HibernateUtil.getSessionFactory();
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
 		String hashedPassword = CustomerService.hashPassword(password);
@@ -107,12 +112,16 @@ public class WebService {
 		{
 			try
 			{
-				String jsonString = om.writeValueAsString(loggedIn);
+				String customer_id = Integer.toString(loggedIn.getCustomer_id());
+				String jsonString = om.writeValueAsString(customer_id);
 				response.getWriter().append(jsonString).close();
 			} catch (IOException e)
 			{
 				e.printStackTrace();
-			}	
+			} catch(HibernateException e)
+			{
+				e.printStackTrace();
+			}
 		} else 
 		{
 			try
