@@ -26,9 +26,21 @@ public class Room {
 		this.room_id = room_id;
 		this.number_of_beds = number_of_beds;
 	}
+	
+	public Room()
+	{
+		super();
+		room_id = -1;
+		number_of_beds = -1;
+	}
 
 	public int getRoom_id() {
 		return room_id;
+	}
+
+	@Override
+	public String toString() {
+		return "Room [room_id=" + room_id + ", number_of_beds=" + number_of_beds + "]";
 	}
 
 	public void setRoom_id(int room_id) {
@@ -50,6 +62,8 @@ public class Room {
 	public void setReservations(List<Reservation> reservations) {
 		this.reservations = reservations;
 	}
+	
+
 	
 	
 }
