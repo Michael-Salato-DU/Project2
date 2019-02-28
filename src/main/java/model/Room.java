@@ -6,9 +6,13 @@ import java.util.List;
 import model.Reservation;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 public class Room {
@@ -17,7 +21,8 @@ public class Room {
 	private int room_id;
 	private byte number_of_beds;
 	
-	@ManyToMany(cascade = CascadeType.ALL, mappedBy="rooms")
+	@ManyToMany(cascade = CascadeType.ALL, mappedBy="rooms", fetch = FetchType.EAGER)
+	@JsonIgnore
 	List<Reservation> reservations = new ArrayList<Reservation>();
 
 	

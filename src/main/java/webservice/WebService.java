@@ -21,6 +21,7 @@ import model.Customer;
 import model.Reservation;
 import model.Room;
 import service.CustomerService;
+import service.Log4j;
 import service.ReservationService;
 import service.RoomService;
 import util.HibernateUtil;
@@ -154,6 +155,24 @@ public class WebService {
 		}catch(IOException ioe)
 		{
 			ioe.printStackTrace();
+		}
+	}
+
+	public static void getAllReservationsByCustomerId(HttpServletRequest request, HttpServletResponse response) 
+	{
+		System.out.println("IN GETALLRESERVATIONSBYCUSTOMERID");
+		int customer_id = Integer.parseInt(request.getParameter("customer_id"));
+		ArrayList<Reservation> reservationList = ReservationService.getAllReservationsByCustomerId(customer_id);
+		ObjectMapper om = new ObjectMapper();
+		try
+		{
+			String jsonString = om.writeValueAsString(reservationList);
+			System.out.println("JSONSTRING IS: " + jsonString);
+			response.getWriter().append(jsonString).close();
+		} catch(IOException e)
+		{
+			e.printStackTrace();
+			Log4j.logger.error(e);
 		}
 	}
 }
