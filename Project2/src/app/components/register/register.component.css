@@ -1,7 +1,15 @@
 * {
     box-sizing: border-box;
   }
-  
+  button {
+    background-color: rgb(102, 168, 82);
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+  }
   /* Add padding to containers */
   .container {
     padding: 16px;
