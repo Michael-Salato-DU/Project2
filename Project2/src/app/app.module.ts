@@ -13,6 +13,8 @@ import { LoginService } from './services/login.service';
 import { ReservationComponent } from './components/reservation/reservation.component';
 import { CheckoutComponent } from './components/checkout/checkout.component';
 import { ReservationService } from './services/reservation.service';
+import { CookieService } from 'angular2-cookie/services/cookies.service';
+
 
 @NgModule({
   declarations: [
@@ -29,7 +31,7 @@ import { ReservationService } from './services/reservation.service';
     FormsModule,
     HttpClientModule
   ],
-  providers: [RegisterService, LoginService, ReservationService],
+  providers: [RegisterService, LoginService, ReservationService,CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

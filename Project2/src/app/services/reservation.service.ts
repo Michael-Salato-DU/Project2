@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Room } from '../models/Room';
 import { Observable } from 'rxjs';
 import { HttpHeaders } from '@angular/common/http';
+import { CookieService } from 'angular2-cookie/core';
 
 
 @Injectable({
@@ -10,7 +11,7 @@ import { HttpHeaders } from '@angular/common/http';
 })
 export class ReservationService {
 
-  constructor(private http :HttpClient) { }
+  constructor(private http :HttpClient,private _cookieService:CookieService ) { }
   getAvailableRoomsUrl :string  = "http://ec2-54-172-178-2.compute-1.amazonaws.com:8080/Project2/getAvailableRooms.do";
   createAReservationUrl :string;
 
@@ -23,6 +24,8 @@ export class ReservationService {
 
   getRooms(start :Date, end :Date):Observable<Room>{
     console.log("getting reservations: " + start +"\n" + end);
+    // customer id is save w
+    console.log(this._cookieService.get('cid'));
     return this.http.get<Room>(this.getAvailableRoomsUrl+ "?start_Date="+start + "&end_Date="+end);
   }
 
