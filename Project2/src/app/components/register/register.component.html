@@ -1,3 +1,11 @@
+<div style="text-align:right">
+  <button onclick="document.getElementById('id02').style.display='block'" style="width:auto;">Register</button>
+</div>
+<div id="id02" class="modal">
+  <div class="imgcontainer">
+    <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
+  </div>
+  <div class="container">
 
 <div class ="col-span-8">
     <div class="container">
@@ -24,13 +32,18 @@
       <input type="password" placeholder="Enter Password" [(ngModel)] = "password" >
 
       <label for="psw-repeat"><b>Repeat Password</b></label>
-      <input type="password" placeholder="Repeat Password" [(ngModel)] = "rpsw-repeat" >
+      <input type="password" placeholder="Repeat Password" [(ngModel)] = "rpsw" >
       <hr>
   
       <button (click)="register()" class="registerbtn">Register</button>
     </div>
     
-    <div class="container signin">
-      <p>Already have an account? <a href="/">Sign in</a>.</p>
-    </div>
+
 </div>
+</div>
+<div class="container" style="background-color:#f1f1f1">
+  <button type="button" onclick="document.getElementById('id02').style.display='none'" class="cancelbtn">Cancel</button>
+</div>
+
+</div>
+

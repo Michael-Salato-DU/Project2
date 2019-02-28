@@ -9,20 +9,27 @@ import { RegisterComponent } from './components/register/register.component';
 import { DateSelectionComponent } from './components/date-selection/date-selection.component';
 import { RegisterService } from './services/register.service';
 import { LoginComponent } from './components/login/login.component';
+import { LoginService } from './services/login.service';
+import { ReservationComponent } from './components/reservation/reservation.component';
+import { CheckoutComponent } from './components/checkout/checkout.component';
+import { ReservationService } from './services/reservation.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     RegisterComponent,
     DateSelectionComponent,
-    LoginComponent
+    LoginComponent,
+    ReservationComponent,
+    CheckoutComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
-  providers: [RegisterService],
+  providers: [RegisterService, LoginService, ReservationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
