@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ReservationService } from 'src/app/services/reservation.service'
 import { Observable } from 'rxjs';
+import {Room} from 'src/app/models/Room';
 
 @Component({
   selector: 'app-date-selection',
@@ -19,6 +20,9 @@ export class DateSelectionComponent implements OnInit {
   endDate :Date;
   message :string;
 
+  rooms :Observable<Room> = this.rs.getRooms(this.startDate, this.endDate);
+  availableRoom :Room;
+
   submitDates() :any {
     if( this.endDate == null || this.startDate == null){
       // alert("enddate not picked");
@@ -33,7 +37,9 @@ export class DateSelectionComponent implements OnInit {
     else if ( this.startDate < this.endDate){
       return this.rs.getRooms(this.startDate, this.endDate)
       .subscribe(
-      (response)=>{console.log("successful call" + response)},
+      (response)=>{console.log("successful call" + response);
+          this.availableRoom = response
+          console.log(this.availableRoom)},
       (response)=>{console.log("unsuccessful call" + response)}
       );
     }
