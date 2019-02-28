@@ -31,9 +31,11 @@ export class DateSelectionComponent implements OnInit {
       this.message = "You must depart on at least the next day.";
     }
     else if ( this.startDate < this.endDate){
-      return this.rs.getReservations(this.startDate, this.endDate)
-      .subscribe(response=>{console.log("successful response:"+JSON.parse(response))},
-      response=>{console.log("unsuccessful response:"+JSON.parse(response))});
+      return this.rs.getRooms(this.startDate, this.endDate)
+      .subscribe(
+      (response)=>{console.log("successful call" + response)},
+      (response)=>{console.log("unsuccessful call" + response)}
+      );
     }
   }
 }
