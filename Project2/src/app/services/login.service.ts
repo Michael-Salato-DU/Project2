@@ -8,7 +8,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class LoginService {
-  loginUrl :string  = "http://ec2-52-15-141-97.us-east-2.compute.amazonaws.com:8080/Project2/login.do";
+  loginUrl :string  = "http://ec2-54-172-178-2.compute-1.amazonaws.com:8080/Project2/login.do";
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type':  'application/x-www-form-urlencoded',

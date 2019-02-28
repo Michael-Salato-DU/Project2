@@ -11,8 +11,9 @@ import { HttpHeaders } from '@angular/common/http';
 export class ReservationService {
 
   constructor(private http :HttpClient) { }
-  getAvailableRoomsUrl :string  = "http://ec2-52-15-141-97.us-east-2.compute.amazonaws.com:8080/Project2/getAvailableRooms.do";
+  getAvailableRoomsUrl :string  = "http://ec2-54-172-178-2.compute-1.amazonaws.com:8080/Project2/getAvailableRooms.do";
   createAReservationUrl :string;
+
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type':  'application/x-www-form-urlencoded',
@@ -20,13 +21,13 @@ export class ReservationService {
     })
   };
 
-  getReservations(start :Date, end :Date):Observable<Array<Room>>{
+  getRooms(start :Date, end :Date):Observable<Room>{
     console.log("getting reservations: " + start +"\n" + end);
-    return this.http.post<Array<Room>>(this.getAvailableRoomsUrl, "?start_Date="+start + "&end_Date="+end, this.httpOptions);
+    return this.http.get<Room>(this.getAvailableRoomsUrl+ "?start_Date="+start + "&end_Date="+end);
   }
 
-  makeAReservation(start :Date, end :Date):Observable<Array<Room>>{
-    console.log("making reservation: " + start +"\n" + end);
+  makeAReservation(start :Date, end :Date):any{
+    console.log("making reservation: (return is null)" + start +"\n" + end);
     return null;
   }
 
