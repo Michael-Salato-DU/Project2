@@ -1,7 +1,10 @@
 package behaviortests;
 
+import static org.testng.Assert.assertEquals;
+
 import java.io.File;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import cucumber.api.PendingException;
@@ -9,7 +12,6 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import pages.Project2Main;
-import pages.WikiMain;
 
 public class Project2StepImplementation {
 
@@ -41,19 +43,18 @@ public class Project2StepImplementation {
 
 	@Then("^: I am logged on$")
 	public void i_am_logged_on() throws Throwable {
-	    // Write code here that turns the phrase above into concrete actions
+	    assertEquals(project2Main.getResponse(), "You have logged on");
 	    throw new PendingException();
 	}
 
 	@Then("^: I am not logged on$")
 	public void i_am_not_logged_on() throws Throwable {
-	    // Write code here that turns the phrase above into concrete actions
+		assertEquals(project2Main.getResponse(), "Unsuccessful Logon Attempt");
 	    throw new PendingException();
 	}
 
 	@When("^: I click on Reserve a Room$")
 	public void i_click_on_Reserve_a_Room() throws Throwable {
-	    // Write code here that turns the phrase above into concrete actions
 	    throw new PendingException();
 	}
 
@@ -65,25 +66,25 @@ public class Project2StepImplementation {
 
 	@Given("^: I have selected Register$")
 	public void i_have_selected_Register() throws Throwable {
-	    // Write code here that turns the phrase above into concrete actions
+	    project2Main.getRegisterButton();
 	    throw new PendingException();
 	}
 
 	@When("^: I enter a duplicate <\"([^\"]*)\">$")
 	public void i_enter_a_duplicate(String arg1) throws Throwable {
-	    // Write code here that turns the phrase above into concrete actions
+	    project2Main.getUsernameField().sendKeys(arg1);
 	    throw new PendingException();
 	}
 
 	@Then("^: I receive a duplicate usernme error$")
 	public void i_receive_a_duplicate_usernme_error() throws Throwable {
-	    // Write code here that turns the phrase above into concrete actions
+		assertEquals(project2Main.getResponse(), "Failed to Register");
 	    throw new PendingException();
 	}
 
 	@Given("^: I have searched for a room\\.$")
 	public void i_have_searched_for_a_room() throws Throwable {
-	    // Write code here that turns the phrase above into concrete actions
+	    
 	    throw new PendingException();
 	}
 
@@ -107,13 +108,19 @@ public class Project2StepImplementation {
 
 	@When("^: I enter \"([^\"]*)\", <\"([^\"]*)\">, <\"([^\"]*)\", \"([^\"]*)\", \"([^\"]*)\">, <\"([^\"]*)\">, \"([^\"]*)\"$")
 	public void i_enter(String arg1, String arg2, String arg3, String arg4, String arg5, String arg6, String arg7) throws Throwable {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new PendingException();
+	    project2Main.getFirstNameField().sendKeys(arg1);
+	    project2Main.getLastNameField().sendKeys(arg2);
+	    project2Main.getEmailField().sendKeys(arg3);
+	    project2Main.getUsernameField().sendKeys(arg4);
+	    project2Main.getPasswordField().sendKeys(arg5);
+	    project2Main.getAddressField().sendKeys(arg6);
+	    project2Main.getPhoneField().sendKeys(arg7);
+	    project2Main.getConfirmRegister().click();
 	}
 
 	@Then("^: I successfully register$")
 	public void i_successfully_register() throws Throwable {
-	    // Write code here that turns the phrase above into concrete actions
+	    assertEquals(project2Main.getResponse(), "You have registered");
 	    throw new PendingException();
 	}
 
@@ -133,6 +140,21 @@ public class Project2StepImplementation {
 	public void i_reserve_a_room() throws Throwable {
 	    // Write code here that turns the phrase above into concrete actions
 	    throw new PendingException();
+	}
+	
+	
+	//code from www.techbeamers.com/handle-date-time-picker-control-using-webdriver
+	public void SelectDayFromMultiDateCalendar(String day)
+			throws InterruptedException {
+
+		// We are using a special XPath style to select the day of current
+		// month.
+		// It will ignore the previous or next month day and pick the correct
+		// one.
+		By calendarXpath = By
+				.xpath("//td[not(contains(@class,'ui-datepicker-other-month'))]/a[text()='"
+						+ day + "']");
+		driver.findElement(calendarXpath).click();
 	}
 
 

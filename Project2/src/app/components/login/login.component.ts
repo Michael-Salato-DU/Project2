@@ -17,6 +17,7 @@ export class LoginComponent implements OnInit {
   uname: string;
   psw: string;
   a: string;
+  responseText: string = null;
   login(){
     if(this.uname.length < 4 || this.psw.length < 4){
       alert("Information not long enough");
@@ -25,7 +26,9 @@ export class LoginComponent implements OnInit {
       console.log("sending login");
      
       this.ls.sendLogin(this.uname,this.psw).subscribe((response)=>{this.a = response;this._cookieService.put('cid', this.a);
-      console.log("success "+response)},(response)=>{console.log("failure " + response)})
+      console.log("success "+response); this.responseText = "You have logged on.";},(response)=>{console.log("failure " + response);
+      this.responseText = response})
+
       }
 
 

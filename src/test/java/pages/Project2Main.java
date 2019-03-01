@@ -77,4 +77,9 @@ public class Project2Main {
 	{
 		return driver.findElement(By.id("address"));
 	}
+	
+	public WebElement getResponse()
+	{
+		return driver.findElement(By.id("response"));
+	}
 }
