@@ -20,10 +20,11 @@ export class DateSelectionComponent implements OnInit {
   endDate :Date;
   message :string;
 
-  rooms :Observable<Room> = this.rs.getRooms(this.startDate, this.endDate);
+  rooms :Observable<Room> ;
   availableRoom :Room;
 
-  submitDates() :any {
+  submitDates() {
+    this.rooms = this.rs.getRooms(this.startDate, this.endDate);
     if( this.endDate == null || this.startDate == null){
       // alert("enddate not picked");
       this.message = "You must pick both arrival and departure.";
@@ -35,8 +36,8 @@ export class DateSelectionComponent implements OnInit {
       this.message = "You must depart on at least the next day.";
     }
     else if ( this.startDate < this.endDate){
-      return this.rs.getRooms(this.startDate, this.endDate)
-      .subscribe(
+
+      this.rooms.subscribe(
       (response)=>{console.log("successful call" + response);
           this.availableRoom = response
           console.log(this.availableRoom)},

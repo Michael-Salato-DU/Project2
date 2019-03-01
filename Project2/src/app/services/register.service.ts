@@ -23,7 +23,7 @@ export class RegisterService {
   
   sendRegister(customer :Customer):Observable<string>{
     console.log(customer);
-    return this.http.post<string>(this.registerUrl , "?first_name="+customer.first_name +"&last_name=" + customer.last_name + "&username="+customer.username + "&password="+customer.password + "&email=" + customer.email +"&phone="+customer.phone_number + "&address="+customer.address, this.httpOptions);
+    return this.http.post<string>(this.registerUrl , "first_name="+customer.first_name +"&last_name=" + customer.last_name + "&username="+customer.username + "&password="+customer.password + "&email=" + customer.email +"&phone="+customer.phone_number + "&address="+customer.address, this.httpOptions);
   }
   
 }

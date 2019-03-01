@@ -20,7 +20,7 @@ import model.Customer;
 import model.Reservation;
 import model.Room;
 import service.CustomerService;
-import service.Log4j;
+//import service.Log4j;
 import service.ReservationService;
 import service.RoomService;
 import util.HibernateUtil;
@@ -143,8 +143,9 @@ public class WebService {
 		String end_date = request.getParameter("end_Date");
 		RoomDAO rd = new RoomDAO();
 		ArrayList<Room> al = new ArrayList<Room>();
-
+		
 		al = rd.getAvailableRooms(start_date, end_date);
+		System.out.println("Hello" + al);
 		ObjectMapper om = new ObjectMapper();
 		try
 		{
@@ -170,7 +171,7 @@ public class WebService {
 		} catch(IOException e)
 		{
 			e.printStackTrace();
-			Log4j.logger.error(e);
+//			Log4j.logger.error(e);
 		}
 	}
 }
