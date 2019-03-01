@@ -82,4 +82,14 @@ public class Project2Main {
 	{
 		return driver.findElement(By.id("response"));
 	}
+	
+	public WebElement getRegisterUsername()
+	{
+		return driver.findElement(By.id("rusername"));
+	}
+	
+	public WebElement getRegisterPassword()
+	{
+		return driver.findElement(By.id("rpassword"));
+	}
 }
