@@ -9,7 +9,13 @@
   </div>
 </div>
 
-  <div class = "container">
-      <h6 *ngFor="let room of availableRoom">{{room.room_id}} {{room.number_of_beds}}</h6>
-  
-  </div>
+<div class = "container">
+  <form>
+    <ng-container *ngFor="let room of availableRooms">
+        <input (click) = "addOrRemoveRoom(room.room_id)" [id] = "room.room_id" type="checkbox"> Room {{room.room_id}}, {{room.number_of_beds}} bed(s), {{room.number_of_beds * dailyCost * daysReserved | currency : 'USD'}}
+        <br>
+    </ng-container>
+  </form>
+</div>
+
+<app-checkout *ngIf = "selectedRoomIds.length > 0"></app-checkout>
