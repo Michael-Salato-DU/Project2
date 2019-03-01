@@ -75,7 +75,7 @@ public class WebService {
 		}
 		
 		//gets customer_id of the customer reserving the room
-		Customer customer = CustomerService.getCustomer("username");
+		Customer customer = CustomerService.getCustomer(username);
 		int customer_id = customer.getCustomer_id();
 		//sets up reservation to be passed to createReservation method
 		Reservation reservation  = new Reservation(0, customer_id, start_date, end_date);

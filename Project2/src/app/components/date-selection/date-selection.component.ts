@@ -3,6 +3,8 @@ import { ReservationService } from 'src/app/services/reservation.service'
 import { Observable } from 'rxjs';
 import {Room} from 'src/app/models/Room';
 import { FormBuilder, FormGroup, FormArray, FormControl, ValidatorFn } from '@angular/forms';
+import { CookieService } from 'angular2-cookie';
+import { LoginService } from 'src/app/services/login.service';
 
 @Component({
   selector: 'app-date-selection',
@@ -11,7 +13,7 @@ import { FormBuilder, FormGroup, FormArray, FormControl, ValidatorFn } from '@an
 })
 export class DateSelectionComponent implements OnInit {
 
-  constructor(private rs :ReservationService) {
+  constructor(private rs :ReservationService, private cs :CookieService, private ls :LoginService) {
    }
 
   ngOnInit() { }
@@ -69,5 +71,8 @@ export class DateSelectionComponent implements OnInit {
       this.selectedRoomIds.push(room_id);
     }
     console.log(this.selectedRoomIds);
+  }
+  showUserName(){
+    console.log(this.ls.uname);
   }
 }
