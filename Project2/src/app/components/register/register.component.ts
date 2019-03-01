@@ -27,13 +27,15 @@ export class RegisterComponent implements OnInit {
   email :string;
   phone_number :string;
   address :string;
+  responseText: string;
 
   registerResponse :Observable<string>;
 
   register(){
     this.newCustomer = new Customer(0,this.first_name, this.last_name, this.username, this.password,this.email, this.phone_number, this.address);
     console.log(this.newCustomer);
-    this.rs.sendRegister(this.newCustomer).subscribe((response)=>{console.log("success: " + response.toString())},(response)=>{console.log("failure: " +response.toString())});
+    this.rs.sendRegister(this.newCustomer).subscribe((response)=>{console.log("success: " + response.toString());
+    this.responseText = response},(response)=>{console.log("failure: " +response.toString()); this.responseText = "Failed to Register"});
   }
 
 }
