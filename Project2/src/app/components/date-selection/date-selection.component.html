@@ -17,5 +17,9 @@
     </ng-container>
   </form>
 </div>
-
-<app-checkout *ngIf = "selectedRoomIds.length > 0"></app-checkout>
+<div>
+<button (click) = "showUserName()">
+Click to show username
+</button>
+</div>
+<app-checkout *ngIf = "selectedRoomIds.length > 0" ></app-checkout>
