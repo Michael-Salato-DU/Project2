@@ -17,4 +17,5 @@
     </ng-container>
   </form>
 </div>
-<app-checkout *ngIf = "selectedRoomIds.length > 0" ></app-checkout>
+<p *ngIf ="this.ls.uname == undefined">Please Log In</p>
+<app-checkout *ngIf = "selectedRoomIds.length > 0 && this.ls.uname != undefined" ></app-checkout>
