@@ -22,7 +22,7 @@ export class LoginService {
 
   sendLogin(uname:string, psw: string):Observable<string>{
   
-    return  this.http.post<string>(this.loginUrl , "?username="+uname + "&password="+psw, this.httpOptions)
+    return  this.http.post<string>(this.loginUrl , "username="+uname + "&password="+psw, this.httpOptions)
     
   }
 }
