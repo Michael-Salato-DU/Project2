@@ -11,15 +11,15 @@
   
       <div class="container">
         <label for="uname"><b>Username</b></label>
-        <input type="text" placeholder="Enter Username" name="uname" [(ngModel)]="uname" required>
+        <input id="username" type="text" placeholder="Enter Username" name="uname" [(ngModel)]="uname" required>
   
         <label for="psw"><b>Password</b></label>
-        <input type="password" placeholder="Enter Password" name="psw" [(ngModel)]="psw" required>
+        <input id="password" type="password" placeholder="Enter Password" name="psw" [(ngModel)]="psw" required>
           
-        <button (click)= login() >Login</button>
+        <button id="modalLogin" (click)= login() >Login</button>
       </div>
       <div class="container" style="background-color:#f1f1f1">
-        <button type="button" onclick="document.getElementById('id01').style.display='none'" class="btn btn-warn">Cancel</button>
+        <button id="mainPageLogin" type="button" onclick="document.getElementById('id01').style.display='none'" class="btn btn-warn">Cancel</button>
       </div>
     </form>
   </div>
