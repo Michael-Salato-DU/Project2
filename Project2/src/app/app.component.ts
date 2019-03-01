@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CookieService } from 'angular2-cookie/core';
+import { LoginService } from './services/login.service';
 
 
 @Component({
@@ -9,7 +10,7 @@ import { CookieService } from 'angular2-cookie/core';
 })
 export class AppComponent implements OnInit{
 
-  constructor(private _cookieService:CookieService) {}
+  constructor(private ls :LoginService) {}
 
   ngOnInit() {
     
@@ -18,7 +19,6 @@ export class AppComponent implements OnInit{
   title = 'BADS Hotel';
 
   getCookie(key: string){
-    return this._cookieService.get(key);
   }
 
 

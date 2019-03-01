@@ -71,8 +71,9 @@ export class DateSelectionComponent implements OnInit {
       this.selectedRoomIds.push(room_id);
     }
     console.log(this.selectedRoomIds);
+    this.setReservationCart(this.selectedRoomIds);
   }
-  showUserName(){
-    console.log(this.ls.uname);
+  setReservationCart(rooms :Array<number>){
+    this.rs.roomIds = rooms;
   }
 }

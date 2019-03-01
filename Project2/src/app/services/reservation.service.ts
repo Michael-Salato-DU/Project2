@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Room } from '../models/Room';
 import { Observable } from 'rxjs';
 import { HttpHeaders } from '@angular/common/http';
-import { CookieService } from 'angular2-cookie/core';
+import { LoginService } from './login.service';
 
 
 @Injectable({
@@ -11,9 +11,9 @@ import { CookieService } from 'angular2-cookie/core';
 })
 export class ReservationService {
 
-  constructor(private http :HttpClient,private _cookieService:CookieService ) { }
+  constructor(private http :HttpClient,private ls :LoginService ) { }
   getAvailableRoomsUrl :string  = "http://ec2-54-172-178-2.compute-1.amazonaws.com:8080/Project2/getAvailableRooms.do";
-  createAReservationUrl :string;
+  createAReservationUrl :string ="http://ec2-54-172-178-2.compute-1.amazonaws.com:8080/Project2/makeAReservation.do";
 
   httpOptions = {
     headers: new HttpHeaders({
@@ -22,16 +22,20 @@ export class ReservationService {
     })
   };
 
+  startDate :Date;
+  endDate :Date;
+  roomIds :Array<number>;
+
   getRooms(start :Date, end :Date):Observable<Room>{
     console.log("getting reservations: " + start +"\n" + end);
-    // customer id is save w
-    console.log(this._cookieService.get('cid'));
+    this.startDate = start;
+    this.endDate = end;
     return this.http.get<Room>(this.getAvailableRoomsUrl+ "?start_Date="+start + "&end_Date="+end);
   }
 
-  makeAReservation(start :Date, end :Date):any{
-    console.log("making reservation: (return is null)" + start +"\n" + end);
-    return null;
+  makeAReservation(username :string, start :Date, end :Date, selectedRoomIds :Array<number>) :Observable<string>{
+    console.log("making reservation: " + start +"\n" + end+ "\n" + selectedRoomIds);
+    return this.http.post<string>(this.createAReservationUrl, "username="+username + "&start_Date=" +start + "&end_Date=" + end + "&rooms="+selectedRoomIds)
   }
 
 }
