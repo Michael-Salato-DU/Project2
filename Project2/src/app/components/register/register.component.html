@@ -13,36 +13,36 @@
       <p>Please fill in this form to create an account.</p>
       <hr>
       <label for="name"><b>Name</b></label>
-      <input type="text" placeholder="first" [(ngModel)] = "first_name" >
-      <input type="text" placeholder="last" [(ngModel)] = "last_name" >
+      <input id="first_name" type="text" placeholder="first" [(ngModel)] = "first_name" >
+      <input id="last_name" type="text" placeholder="last" [(ngModel)] = "last_name" >
 
       <label for="email"><b>Email</b></label>
-      <input type="text" placeholder="Enter Email" [(ngModel)] = "email">
+      <input id="email" type="text" placeholder="Enter Email" [(ngModel)] = "email">
 
       <label for="phone"><b>Phone</b></label>
-      <input type="text" placeholder="Phone Number" [(ngModel)] = "phone_number" >
+      <input id="phone" type="text" placeholder="Phone Number" [(ngModel)] = "phone_number" >
       
       <label for="address"><b>Address</b></label>
-      <input type="text" placeholder="Address" [(ngModel)] = "address" required>
+      <input id="Address" type="text" placeholder="Address" [(ngModel)] = "address" required>
 
       <label for="username"><b>Username</b></label>
-      <input type="text" placeholder="Username" [(ngModel)] = "username" required>
+      <input id="username" type="text" placeholder="Username" [(ngModel)] = "username" required>
 
       <label for="psw"><b>Password</b></label>
-      <input type="password" placeholder="Enter Password" [(ngModel)] = "password" >
+      <input id="password" type="password" placeholder="Enter Password" [(ngModel)] = "password" >
 
       <label for="psw-repeat"><b>Repeat Password</b></label>
       <input type="password" placeholder="Repeat Password" [(ngModel)] = "rpsw" >
       <hr>
   
-      <button (click)="register()" class="registerbtn">Register</button>
+      <button id="modalRegister" (click)="register()" class="registerbtn">Register</button>
     </div>
     
 
 </div>
 </div>
 <div class="container" style="background-color:#f1f1f1">
-  <button type="button" onclick="document.getElementById('id02').style.display='none'" class="btn btn-warn">Cancel</button>
+  <button id="mainPageResitser" type="button" onclick="document.getElementById('id02').style.display='none'" class="btn btn-warn">Cancel</button>
 </div>
 
 </div>
