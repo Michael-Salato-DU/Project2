@@ -14,7 +14,7 @@ export class DateSelectionComponent implements OnInit {
   constructor(private rs :ReservationService, private ls :LoginService) {
    }
 
-  ngOnInit() { }
+  ngOnInit() { this.startDate = this.today; this.endDate = this.tomorrow}
 
   today :Date = new Date();
   tomorrow :Date = new Date(this.today.getTime() + (1000 * 60 * 60 * 24));
