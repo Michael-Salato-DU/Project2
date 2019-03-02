@@ -2,8 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ReservationService } from 'src/app/services/reservation.service'
 import { Observable } from 'rxjs';
 import {Room} from 'src/app/models/Room';
-import { FormBuilder, FormGroup, FormArray, FormControl, ValidatorFn } from '@angular/forms';
-import { CookieService } from 'angular2-cookie';
 import { LoginService } from 'src/app/services/login.service';
 
 @Component({
@@ -13,7 +11,7 @@ import { LoginService } from 'src/app/services/login.service';
 })
 export class DateSelectionComponent implements OnInit {
 
-  constructor(private rs :ReservationService, private cs :CookieService, private ls :LoginService) {
+  constructor(private rs :ReservationService, private ls :LoginService) {
    }
 
   ngOnInit() { }
