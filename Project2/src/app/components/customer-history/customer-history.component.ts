@@ -15,9 +15,11 @@ export class CustomerHistoryComponent implements OnInit {
 
   ngOnInit() {
   }
+  beds :Array<number>  = [1,1,1,3,1,2,2,2,2,2,2,2,2,2,2,2,3,3,3,3,3];
   reservedRooms :Observable<Reservation>;
   reservations :Reservation;
   showMyReservations(){
+    console.log(this.beds.length);
     this.reservedRooms = this.rs.getMyReservations(this.ls.userId);
     this.reservedRooms.subscribe(
     //success

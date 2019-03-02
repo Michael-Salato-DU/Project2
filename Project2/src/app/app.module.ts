@@ -13,7 +13,6 @@ import { LoginService } from './services/login.service';
 import { ReservationComponent } from './components/reservation/reservation.component';
 import { CheckoutComponent } from './components/checkout/checkout.component';
 import { ReservationService } from './services/reservation.service';
-import { CookieService } from 'angular2-cookie/services/cookies.service';
 import { CustomerHistoryComponent } from './components/customer-history/customer-history.component';
 
 
@@ -33,7 +32,7 @@ import { CustomerHistoryComponent } from './components/customer-history/customer
     FormsModule,
     HttpClientModule
   ],
-  providers: [RegisterService, LoginService, ReservationService,CookieService],
+  providers: [RegisterService, LoginService, ReservationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

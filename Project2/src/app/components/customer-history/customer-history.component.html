@@ -1,11 +1,23 @@
 <div class="container">
-  <div class="row">
-    <button (click)="showMyReservations()">Show my Reservations</button>
-    <table>
-    <tr *ngFor= "let reservation of reservations">
-      <td>Start Date: {{reservation.start_date | date:'yyyy-MM-dd'}} </td>
-      <td>End Date: {{reservation.end_date | date:'yyy-MM-dd'}}</td>
-    </tr>
-    </table>
+  <div class="row col-sm-12">
+    <div><button (click)="showMyReservations()" class="btn btn-primary">Show Reservations for {{this.ls.uname}}</button></div>
+    <br>
   </div>
+<div class="row col-sm-12">
+  <table *ngIf="reservations != undefined" class="table table-hover">
+    <th>#</th>
+    <th>No. Days</th>
+    <th>Username</th>
+    <th>Start Date</th>
+    <th>End Date</th>
+  <tr *ngFor= "let reservation of reservations">
+    <td>{{reservation.reservation_id}}</td>
+    <!-- //this method will not work for months -->
+    <td>{{reservation.end_date - reservation.start_date | date:'d'}}</td>
+    <td>{{ls.uname}}</td>
+    <td>{{reservation.start_date | date:'yyyy-MM-dd'}} </td>
+    <td>{{reservation.end_date | date:'yyy-MM-dd'}}</td>
+  </tr>
+  </table>
+</div>
 </div>
