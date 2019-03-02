@@ -16,7 +16,7 @@ describe('workspace-project App', () => {
   });
   
   // it('should get register', () => {
-  //   element(by.id('mainPageResitser')).click();
+  //   element(by.id('mainPageRegister')).click();
   //   element(by.id('first_name')).sendKeys('firstname');
   //   element(by.id('last_name')).sendKeys('lastname');
   //   element(by.id('email')).sendKeys('email@email.email');
@@ -36,14 +36,24 @@ describe('workspace-project App', () => {
 
   });
 
+  it('should be able to see past reservations', () => {
+    expect(element(by.id('showMyReservations'))).toBeTruthy();
+  });
+
   it('should search for a date', ()=> {
-    element(by.id('arrivalDate')).sendkeys('03133019');
-    element(by.id('departureDate')).sendkeys('03133019');
-    element(by.id('seeAvailableRoomBtn')).click();
+    element(by.id('arrivalDate')).sendKeys('03133019');
+    element(by.id('departureDate')).sendKeys('03153019');
+    element(by.id('seeAvailableRoomsBtn')).click();
+
     expect(element(by.id('5'))).toBeTruthy();
 
   });
-  
+
+  it('should be able to checkout after selecting a date', ()=> {
+    element(by.id('5')).click();
+    
+    expect(by.id('reserveRoomBtn')).toBeTruthy();
+  });
 
 
   afterEach(async () => {
