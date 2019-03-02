@@ -10,13 +10,24 @@
 </div>
 <div *ngIf= "this.rs.madeAReservation">
 <div  class = "container">
-  <form>
-    <ng-container *ngFor="let room of availableRooms">
-        <input (click) = "addOrRemoveRoom(room.room_id, room.number_of_beds)" [id] = "room.room_id" type="checkbox"> Room {{room.room_id}}, {{room.number_of_beds}} bed(s), {{room.number_of_beds * dailyCost * daysReserved | currency : 'USD'}}
+  <table *ngIf="availableRooms != undefined" class="table table-hover">
+    <ng-container >
+      <th>Add Room</th>
+      <th>#</th>
+      <th>Beds</th>
+      <th>Price</th>
+      <tr *ngFor="let room of availableRooms">
+        <td><input (click) = "addOrRemoveRoom(room.room_id)" [id] = "room.room_id" type="checkbox"></td>
+        <td>{{room.room_id}}</td>
+        <td>{{room.number_of_beds}} beds</td>
+        <td>{{room.number_of_beds * dailyCost * daysReserved | currency : 'USD'}}</td>
+      </tr>
         <br>
     </ng-container>
-  </form>
+  </table>
 </div>
-<p *ngIf ="this.ls.uname == undefined">Please Log In</p>
-<app-checkout *ngIf = "selectedRoomIds.length > 0 && this.ls.uname != undefined" ></app-checkout>
+<ng-container class="col-sm-12">
+  <p *ngIf ="this.ls.uname == undefined" class="col-sm-12">Please Log In</p>
+  <app-checkout *ngIf = "selectedRoomIds.length > 0 && this.ls.uname != undefined"></app-checkout>
+</ng-container>
 </div>
