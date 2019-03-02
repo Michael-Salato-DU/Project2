@@ -3,8 +3,10 @@ package behaviortests;
 import static org.testng.Assert.assertEquals;
 
 import java.io.File;
+import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import cucumber.api.PendingException;
@@ -44,66 +46,68 @@ public class Project2StepImplementation {
 	@Then("^: I am logged on$")
 	public void i_am_logged_on() throws Throwable {
 	    assertEquals(project2Main.getResponse(), "You have logged on");
-	    throw new PendingException();
 	}
 
 	@Then("^: I am not logged on$")
 	public void i_am_not_logged_on() throws Throwable {
 		assertEquals(project2Main.getResponse(), "Unsuccessful Logon Attempt");
-	    throw new PendingException();
 	}
 
 	@When("^: I click on Reserve a Room$")
 	public void i_click_on_Reserve_a_Room() throws Throwable {
-	    throw new PendingException();
+	   
 	}
 
 	@Then("^: I see a list of rooms available$")
 	public void i_see_a_list_of_rooms_available() throws Throwable {
 	    // Write code here that turns the phrase above into concrete actions
-	    throw new PendingException();
+
 	}
 
 	@Given("^: I have selected Register$")
 	public void i_have_selected_Register() throws Throwable {
 	    project2Main.getRegisterButton();
-	    throw new PendingException();
 	}
 
 	@When("^: I enter a duplicate <\"([^\"]*)\">$")
 	public void i_enter_a_duplicate(String arg1) throws Throwable {
 	    project2Main.getUsernameField().sendKeys(arg1);
-	    throw new PendingException();
+
 	}
 
 	@Then("^: I receive a duplicate usernme error$")
 	public void i_receive_a_duplicate_usernme_error() throws Throwable {
 		assertEquals(project2Main.getResponse(), "Failed to Register");
-	    throw new PendingException();
+	
 	}
 
 	@Given("^: I have searched for a room\\.$")
 	public void i_have_searched_for_a_room() throws Throwable {
+	    WebElement arrivalDate = driver.findElement(By.id("arrivalDate"));
+	    arrivalDate.click();
+	    SelectDayFromMultiDateCalendar("5");
+	    WebElement departureDate = driver.findElement(By.id("depatureDate"));
+	    departureDate.click();
+	    SelectDayFromMultiDateCalendar("8");
+	    project2Main.getSeeAvailableRooms();
 	    
-	    throw new PendingException();
 	}
 
 	@Given("^: A room is available$")
 	public void a_room_is_available() throws Throwable {
 	    // Write code here that turns the phrase above into concrete actions
-	    throw new PendingException();
+	
 	}
 
 	@When("^: I select a room to reserve$")
 	public void i_select_a_room_to_reserve() throws Throwable {
 	    // Write code here that turns the phrase above into concrete actions
-	    throw new PendingException();
 	}
 
 	@Then("^: It is reserved$")
 	public void it_is_reserved() throws Throwable {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new PendingException();
+	   // Write code here that turns the phrase above into concrete actions
+	
 	}
 
 	@When("^: I enter \"([^\"]*)\", <\"([^\"]*)\">, <\"([^\"]*)\", \"([^\"]*)\", \"([^\"]*)\">, <\"([^\"]*)\">, \"([^\"]*)\"$")
@@ -121,25 +125,24 @@ public class Project2StepImplementation {
 	@Then("^: I successfully register$")
 	public void i_successfully_register() throws Throwable {
 	    assertEquals(project2Main.getResponse(), "You have registered");
-	    throw new PendingException();
+	
 	}
 
 	@Given("^: I am on the Reservation Confirmation Page$")
 	public void i_am_on_the_Reservation_Confirmation_Page() throws Throwable {
 	    // Write code here that turns the phrase above into concrete actions
-	    throw new PendingException();
 	}
 
 	@When("^: I enter my <\"([^\"]*)\">, <\"([^\"]*)\">, <\"([^\"]*)\">$")
 	public void i_enter_my(String arg1, String arg2, String arg3) throws Throwable {
 	    // Write code here that turns the phrase above into concrete actions
-	    throw new PendingException();
+	
 	}
 
 	@Then("^: I reserve a room$")
 	public void i_reserve_a_room() throws Throwable {
 	    // Write code here that turns the phrase above into concrete actions
-	    throw new PendingException();
+	 
 	}
 	
 	
