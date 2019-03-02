@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
-    <button (click)="showMyReservations()">Show my Reservations</button>
-    <table>
+    <div class = "col-4"><button (click)="showMyReservations()">Show my Reservations</button></div>
+    <table class="col-8">
     <tr *ngFor= "let reservation of reservations">
       <td>Start Date: {{reservation.start_date | date:'yyyy-MM-dd'}} </td>
       <td>End Date: {{reservation.end_date | date:'yyy-MM-dd'}}</td>
