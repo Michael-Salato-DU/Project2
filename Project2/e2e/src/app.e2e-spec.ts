@@ -1,6 +1,6 @@
 import { AppPage } from './app.po';
 import { browser, logging } from 'protractor';
-import { element } from '@angular/core/src/render3';
+import { element, by } from 'protractor';
 
 describe('workspace-project App', () => {
   let page: AppPage;
@@ -14,12 +14,36 @@ describe('workspace-project App', () => {
     
     expect(browser.getTitle()).toEqual("BADS Hotel");
   });
+  
+  // it('should get register', () => {
+  //   element(by.id('mainPageResitser')).click();
+  //   element(by.id('first_name')).sendKeys('firstname');
+  //   element(by.id('last_name')).sendKeys('lastname');
+  //   element(by.id('email')).sendKeys('email@email.email');
+  //   element(by.id('phone')).sendKeys('555-555-test');
+  //   element(by.id('Address')).sendKeys('Address');
+  //   element(by.id('rusername')).sendKeys('rusername');
+  //   element(by.id('rpassword')).sendKeys('rpassword');
+  //   element(by.id('modalRegister')).click();
+  // });
 
   it('should login successfully', () => {
+    element(by.id('mainPageLogin')).click();
+    element(by.name('uname')).sendKeys('test1');
+    element(by.name('psw')).sendKeys('test1');
+    element(by.id('modalLogin')).click();
+    expect(element(by.id('showMyReservations'))).toBeTruthy();
 
-    element(by.id('mainPageLogin'));
-    expect();
   });
+
+  it('should search for a date', ()=> {
+    element(by.id('arrivalDate')).sendkeys('03133019');
+    element(by.id('departureDate')).sendkeys('03133019');
+    element(by.id('seeAvailableRoomBtn')).click();
+    expect(element(by.id('5'))).toBeTruthy();
+
+  });
+  
 
 
   afterEach(async () => {
