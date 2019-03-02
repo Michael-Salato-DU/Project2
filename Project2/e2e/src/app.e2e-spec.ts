@@ -1,5 +1,6 @@
 import { AppPage } from './app.po';
 import { browser, logging } from 'protractor';
+import { element } from '@angular/core/src/render3';
 
 describe('workspace-project App', () => {
   let page: AppPage;
@@ -10,8 +11,16 @@ describe('workspace-project App', () => {
 
   it('should display welcome message', () => {
     page.navigateTo();
-    expect(page.getTitleText()).toEqual('Welcome to Project2!');
+    
+    expect(browser.getTitle()).toEqual("BADS Hotel");
   });
+
+  it('should login successfully', () => {
+
+    element(by.id('mainPageLogin'));
+    expect();
+  });
+
 
   afterEach(async () => {
     // Assert that there are no errors emitted from the browser
