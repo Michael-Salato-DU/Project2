@@ -23,6 +23,7 @@ export class CheckoutComponent implements OnInit {
     .subscribe(
       (response) => {console.log(response)}
     ,
-    (response) => {console.log(response)});
+    (response) => {console.log(response)}
+    );
   }
 }

@@ -35,7 +35,9 @@ export class ReservationService {
 
   makeAReservation(username :string, start :Date, end :Date, selectedRoomIds :Array<number>) :Observable<string>{
     console.log("making reservation: " + start +"\n" + end+ "\n" + selectedRoomIds);
-    return this.http.post<string>(this.createAReservationUrl, "username="+username + "&start_Date=" +start + "&end_Date=" + end + "&rooms="+selectedRoomIds)
+    console.log("username="+username + "&start_Date=" +start + "&end_Date=" + end + "&rooms="+selectedRoomIds);
+    return this.http.post<string>(this.createAReservationUrl, "username="+username + "&start_Date=" +start + "&end_Date=" + end + "&rooms="+selectedRoomIds, this.httpOptions);
+    // return null;
   }
 
 }
