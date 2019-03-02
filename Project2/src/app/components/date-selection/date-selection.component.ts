@@ -79,12 +79,14 @@ export class DateSelectionComponent implements OnInit {
       }
     } else {
       console.log("adding")
+      
       this.selectedRoomIds.push(room_id);
       this.selectedRoomDetails.push(new Room(room_id, number_of_beds));
       this.rs.orderTotal += number_of_beds * this.daysReserved * this.dailyCost;
     }
     console.log(this.selectedRoomIds);
     console.log(this.selectedRoomDetails);
+    console.log(this.rs.orderTotal);
     this.setReservationCart(this.selectedRoomIds, this.selectedRoomDetails);
   }
   setReservationCart(rooms :Array<number>, roomDetails :Array<Room>){
