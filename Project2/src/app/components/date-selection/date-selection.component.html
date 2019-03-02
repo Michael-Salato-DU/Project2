@@ -12,7 +12,7 @@
 <div  class = "container">
   <form>
     <ng-container *ngFor="let room of availableRooms">
-        <input (click) = "addOrRemoveRoom(room.room_id)" [id] = "room.room_id" type="checkbox"> Room {{room.room_id}}, {{room.number_of_beds}} bed(s), {{room.number_of_beds * dailyCost * daysReserved | currency : 'USD'}}
+        <input (click) = "addOrRemoveRoom(room.room_id, room.number_of_beds)" [id] = "room.room_id" type="checkbox"> Room {{room.room_id}}, {{room.number_of_beds}} bed(s), {{room.number_of_beds * dailyCost * daysReserved | currency : 'USD'}}
         <br>
     </ng-container>
   </form>
