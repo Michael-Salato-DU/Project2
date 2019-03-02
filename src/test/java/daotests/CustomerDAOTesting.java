@@ -56,7 +56,7 @@ public class CustomerDAOTesting {
   {
 	  String username = "username";
 	  String password = CustomerService.hashPassword("password");
-	  Assert.assertEquals(cd.Login(username, password), true);
+	  Assert.assertTrue(cd.Login(username, password).getCustomer_id() >= 0);
   }
   
   @Test(priority = 2)
@@ -64,7 +64,7 @@ public class CustomerDAOTesting {
   {
 	  String username = "NOT A USERNAME";
 	  String password = CustomerService.hashPassword("password");
-	  Assert.assertEquals(cd.Login(username, password), false);
+	  Assert.assertTrue(cd.Login(username, password).getCustomer_id() == -1);
   }
   
   @Test(priority = 3)
