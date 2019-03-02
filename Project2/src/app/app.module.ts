@@ -14,6 +14,7 @@ import { ReservationComponent } from './components/reservation/reservation.compo
 import { CheckoutComponent } from './components/checkout/checkout.component';
 import { ReservationService } from './services/reservation.service';
 import { CookieService } from 'angular2-cookie/services/cookies.service';
+import { CustomerHistoryComponent } from './components/customer-history/customer-history.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { CookieService } from 'angular2-cookie/services/cookies.service';
     DateSelectionComponent,
     LoginComponent,
     ReservationComponent,
-    CheckoutComponent
+    CheckoutComponent,
+    CustomerHistoryComponent
   ],
   imports: [
     BrowserModule,
