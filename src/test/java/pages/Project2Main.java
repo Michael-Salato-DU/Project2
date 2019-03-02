@@ -30,7 +30,7 @@ public class Project2Main {
 	public WebElement getStartDate() 
 	{
 		driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
-		return driver.findElement(By.id("arrivaleDate"));
+		return driver.findElement(By.id("arrivalDate"));
 	}
 	
 	public WebElement getEndDate()
@@ -60,7 +60,7 @@ public class Project2Main {
 	public WebElement getConfirmRegister()
 	{
 		driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
-		return driver.findElement(By.id(""));
+		return driver.findElement(By.id("modalRegister"));
 	}
 	
 	public WebElement getFirstNameField()
