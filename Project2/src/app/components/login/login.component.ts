@@ -15,7 +15,8 @@ export class LoginComponent implements OnInit {
   uname: string;
   psw: string;
   a: string;
-  responseText: string = null;
+  responseText: string;
+
   login(){
     if(this.uname.length < 4 || this.psw.length < 4){
       alert("Information not long enough");
@@ -31,13 +32,15 @@ export class LoginComponent implements OnInit {
           this.ls.userId = parseInt(response);
           this.ls.uname = this.uname;
         }
+        else{
+          this.responseText = "Invalid Credentials";
+        }
         console.log("success");
         console.log(response); 
-        this.responseText = "You have logged on.";
       },
       (response)=>{
         console.log("failure " + response);
-      this.responseText = response})
+      this.responseText = "Response Failure"})
 
       }
 
