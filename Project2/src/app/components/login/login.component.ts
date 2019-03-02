@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginService } from 'src/app/services/login.service'
-import { Subscriber, Observable } from 'rxjs';
-import { CookieService } from 'angular2-cookie/core';
 
 @Component({
   selector: 'app-login',
@@ -10,7 +8,7 @@ import { CookieService } from 'angular2-cookie/core';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private ls :LoginService,private _cookieService:CookieService ) { }
+  constructor(private ls :LoginService ) { }
 
   ngOnInit() {
   }
@@ -25,7 +23,9 @@ export class LoginComponent implements OnInit {
     else{
       console.log("sending login");
      
-      this.ls.sendLogin(this.uname,this.psw).subscribe((response)=>{this.a = response;this._cookieService.put('cid', this.a);
+      this.ls.sendLogin(this.uname,this.psw)
+      .subscribe((response)=>{
+        this.a = response;this.ls.userId = parseInt(response);
       console.log("success "+response); this.responseText = "You have logged on.";},(response)=>{console.log("failure " + response);
       this.responseText = response})
 

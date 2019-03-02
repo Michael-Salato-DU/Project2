@@ -50,6 +50,7 @@ export class DateSelectionComponent implements OnInit {
       (response)=>{console.log("successful call" + response);
           this.availableRooms = response
           console.log(this.availableRooms)
+          this.rs.madeAReservation = true;
         },
       (response)=>{console.log("unsuccessful call" + response)}
       );
@@ -64,6 +65,7 @@ export class DateSelectionComponent implements OnInit {
       for(let i = 0; i < this.selectedRoomIds.length; i++ ){
         if (this.selectedRoomIds[i] == room_id){
           this.selectedRoomIds.splice(i, 1);
+          
         }
       }
     } else {
