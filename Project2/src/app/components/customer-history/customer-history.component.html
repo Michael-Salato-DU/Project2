@@ -1,10 +1,10 @@
 <div class="container">
   <div class="row col-sm-12">
-    <div><button (click)="showMyReservations()" class="btn btn-primary">Show my Reservations</button></div>
+    <div><button (click)="showMyReservations()" class="btn btn-primary">Show Reservations for {{this.ls.uname}}</button></div>
     <br>
   </div>
 <div class="row col-sm-12">
-  <table *ngIf="reservations != undefined" class="table table-condensed">
+  <table *ngIf="reservations != undefined" class="table table-hover">
     <th>#</th>
     <th>No. Days</th>
     <th>Username</th>
