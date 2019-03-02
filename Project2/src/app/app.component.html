@@ -1,5 +1,7 @@
-<div *ngIf = "this.ls.uname == undefined" class="navbar"> <app-login id="mainPageLogin"></app-login>
-  <app-register id="mainPageRegister"></app-register>
+<div  class="navbar"> 
+  <app-login *ngIf = "this.ls.uname == undefined" id="mainPageLogin"></app-login>
+  <app-register *ngIf = "this.ls.uname == undefined" id="mainPageRegister"></app-register>
+  <app-customer-history *ngIf = "this.ls.uname != undefined"></app-customer-history>
 </div>
 <div style="text-align:center">
   <h1>

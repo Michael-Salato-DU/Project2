@@ -25,8 +25,14 @@ export class LoginComponent implements OnInit {
      
       this.ls.sendLogin(this.uname,this.psw)
       .subscribe((response)=>{
-        this.a = response;this.ls.userId = parseInt(response);
-        console.log("success "+response); 
+        this.a = response;
+        if(response != "Unsuccessful logon attempt"){
+          console.log("number");
+          this.ls.userId = parseInt(response);
+          this.ls.uname = this.uname;
+        }
+        console.log("success");
+        console.log(response); 
         this.responseText = "You have logged on.";
       },
       (response)=>{
