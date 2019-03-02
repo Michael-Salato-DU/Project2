@@ -26,7 +26,11 @@ export class ReservationService {
   startDate :Date;
   endDate :Date;
   roomIds :Array<number>;
+  roomsInCart :Array<Room>;
   madeAReservation :boolean = true;
+  dailyBaseCost :number;
+  numDaysReserved :number;
+  orderTotal :number = 0;
 
   getRooms(start :Date, end :Date):Observable<Room>{
     console.log("getting reservations: " + start +"\n" + end);
