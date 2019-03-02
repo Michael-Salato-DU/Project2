@@ -21,7 +21,12 @@ export class CheckoutComponent implements OnInit {
   sendAReservation(){
     this.rs.makeAReservation(this.ls.uname, this.rs.startDate, this.rs.endDate, this.rs.roomIds)
     .subscribe(
-      (response) => {console.log(response)}
+      (response) => {
+        console.log(response);
+        if(response == "You have made a reservation"){
+          this.rs.madeAReservation = false;
+        }
+      }
     ,
     (response) => {console.log(response)}
     );

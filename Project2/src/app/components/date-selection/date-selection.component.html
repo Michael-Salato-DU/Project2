@@ -8,8 +8,8 @@
     <div class="row alert alert-primary">{{message}}</div>
   </div>
 </div>
-
-<div class = "container">
+<div *ngIf= "this.rs.madeAReservation">
+<div  class = "container">
   <form>
     <ng-container *ngFor="let room of availableRooms">
         <input (click) = "addOrRemoveRoom(room.room_id)" [id] = "room.room_id" type="checkbox"> Room {{room.room_id}}, {{room.number_of_beds}} bed(s), {{room.number_of_beds * dailyCost * daysReserved | currency : 'USD'}}
@@ -19,3 +19,4 @@
 </div>
 <p *ngIf ="this.ls.uname == undefined">Please Log In</p>
 <app-checkout *ngIf = "selectedRoomIds.length > 0 && this.ls.uname != undefined" ></app-checkout>
+</div>

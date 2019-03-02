@@ -18,6 +18,7 @@ export class LoginService {
 
 
   uname :string;
+  userId :number;
   sendLogin(uname:string, psw: string):Observable<string>{
     this.uname = uname;
     return this.http.post<string>(this.loginUrl , "username="+uname + "&password="+psw, this.httpOptions)
