@@ -49,6 +49,13 @@ export class DateSelectionComponent implements OnInit {
       console.log(this.daysReserved);
       this.rs.numDaysReserved = this.daysReserved;
 
+      // reset all cart details
+      this.selectedRoomIds.length = 0;
+      this.selectedRoomDetails.length = 0;
+      this.rs.orderTotal = 0;
+    
+      this.setReservationCart(this.selectedRoomIds, this.selectedRoomDetails);
+
       this.rooms.subscribe(
       (response)=>{console.log("successful call" + response);
           this.availableRooms = response

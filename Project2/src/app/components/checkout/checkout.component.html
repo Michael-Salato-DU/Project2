@@ -92,7 +92,7 @@
   <div class="col-41">
     <div class="container">
       <h4>Cart <span class="price" style="color:black"><i class="fa fa-shopping-cart"></i> <b>{{this.rs.roomsInCart.length}}</b></span></h4>
-      <p *ngFor = "let room of this.rs.roomsInCart">Rm {{room.room_id}}, {{room.number_of_beds}} bed(s)<a href="#"> <span class="price">{{room.number_of_beds * this.rs.dailyBaseCost * this.rs.numDaysReserved | currency : 'USD'}}</span></a></p>
+      <p *ngFor = "let room of this.rs.roomsInCart">#{{room.room_id}}, {{room.number_of_beds}} bed(s) <a href="#"> <span class="price"> {{room.number_of_beds * this.rs.dailyBaseCost * this.rs.numDaysReserved | currency : 'USD'}}</span></a></p>
       <hr>
       <p>Total <span class="price" style="color:black"><b>{{this.rs.orderTotal | currency : 'USD'}}</b></span></p>
     </div>
