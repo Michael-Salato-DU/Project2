@@ -57,7 +57,7 @@ public class WebService {
 		System.out.println("IN MAKE A RESERVATION METHOD");
 		//Grabs parameters from front end.
 		String start_dateString = request.getParameter("start_Date");
-		String end_dateString = request.getParameter("end Date");
+		String end_dateString = request.getParameter("end_Date");
 		java.sql.Date start_date = java.sql.Date.valueOf(start_dateString);
 		java.sql.Date end_date = java.sql.Date.valueOf(end_dateString);
 		String username = request.getParameter("username");
@@ -145,7 +145,6 @@ public class WebService {
 		ArrayList<Room> al = new ArrayList<Room>();
 		
 		al = rd.getAvailableRooms(start_date, end_date);
-		System.out.println("Hello" + al);
 		ObjectMapper om = new ObjectMapper();
 		try
 		{
