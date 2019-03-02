@@ -42,7 +42,7 @@ export class DateSelectionComponent implements OnInit {
       this.message = "You must depart on at least the next day.";
     }
     else if ( this.startDate < this.endDate){
-
+      this.message = "";
       this.daysReserved = (new Date(this.endDate).getTime() - new Date(this.startDate).getTime()) / (1000 * 60 * 60 * 24);
       console.log(this.daysReserved);
 
