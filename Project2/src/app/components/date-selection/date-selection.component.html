@@ -1,7 +1,15 @@
 <div class="container">
   <div class="row col-sm-12">
-    <div class="col-sm-4"><span>Arrival Date</span><input type="date"min = "{{today | date:'yyyy-MM-dd'}}" [(ngModel)] = "startDate" class="form-control" id="arrivalDate"></div>
-    <div class="col-sm-4"><span>Departure Date</span><input type="date" min = "{{tomorrow | date:'yyyy-MM-dd'}}" [(ngModel)] = "endDate" class="form-control" id="departureDate"></div>
+    <form class = "row">
+      <div class="input-group">
+        <span class="input-group-addon col-sm-4">Arrival Date</span>
+        <input type="date"min = "{{today | date:'yyyy-MM-dd'}}" [(ngModel)] = "startDate" class="form-control" id="arrivalDate"/>
+      </div>
+      <div class="input-group">
+        <span class="input-group-addon col-sm-4">Departure Date</span>
+        <input type="date" min = "{{tomorrow | date:'yyyy-MM-dd'}}" [(ngModel)] = "endDate" class="form-control" id="departureDate"/>
+      </div>
+    </form>
     <div class="col-sm-4"><button (click)="submitDates()" type="button" class="btn btn-primary" id="seeAvailableRoomsBtn">See Available Rooms</button></div>
   </div>
   <div *ngIf="message" class="row col-sm-12" id="dateSelectionError">
