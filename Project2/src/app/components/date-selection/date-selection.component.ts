@@ -41,9 +41,6 @@ export class DateSelectionComponent implements OnInit {
     else if ( this.endDate == this.startDate){
       this.message = "You must depart on at least the next day.";
     }
-    else if(this.endDate < this.today){
-      this.message = "you cannot arrive in the past";
-    }
     else if ( this.startDate < this.endDate){
       this.message = "";
       this.daysReserved = (new Date(this.endDate).getTime() - new Date(this.startDate).getTime()) / (1000 * 60 * 60 * 24);
