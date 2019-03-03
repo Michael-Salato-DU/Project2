@@ -44,11 +44,21 @@ public class Project2Main {
 		driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
 		return driver.findElement(By.id("username"));
 	}
+	public WebElement getUsernameFieldR()
+	{
+		driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+		return driver.findElement(By.id("rusername"));
+	}
 	
 	public WebElement getPasswordField()
 	{
 		driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
 		return driver.findElement(By.id("password"));
+	}
+	public WebElement getPasswordFieldR()
+	{
+		driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+		return driver.findElement(By.id("rpassword"));
 	}
 	
 	public WebElement getConfirmLogin()
@@ -95,6 +105,14 @@ public class Project2Main {
 	
 	public WebElement getResponse()
 	{
+		driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+		return driver.findElement(By.id("showMyReservations"));
+	}
+	public WebElement getNoResponse() {
+		driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+		return driver.findElement(By.id("modalLogin"));
+	}
+	public WebElement getRegisterResponse() {
 		driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
 		return driver.findElement(By.id("response"));
 	}
