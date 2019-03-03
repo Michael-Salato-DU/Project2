@@ -21,26 +21,20 @@ Scenario Outline: User enters invalid credentials
 
 Scenario Outline: User Registers
         Given : I have selected Register
-        When : I enter "<first name>", <"last name">, <"email>", "<username>", "<password">, <"address">, "<phone number>"
+        When : I enter my "<first name>" and "<last name>" and "<email>" and "<username>" and "<password>" and "<address>" and "<phone number>"
         Then : I successfully register
    Examples:
         | first name | last name | email | username | password | address | phone number |
         | Peter| Asaad| myemail@email.com  | peterasaad | pass  | address | 111-222-3333|
         
         
-#Scenario Outline: User searches for a room
-     #Given: I enter a "<start date>" and an <"end date">
-     #When : I click on Reserve a Room
-     #Then : I see a list of rooms available
-   #Examples:
-      #|start date|end date|
-      #|          |        |          
-#
-#
-#Scenario: User reserves a room
-     #Given : I have searched for a room.
-     #Given : A room is available
-     #When : I select a room to reserve
-     #Then : It is reserved
-     #
+Scenario Outline: User searches for a room
+     Given : I enter a "<start date>" and an "<end date>" 
+     When : I click on Reserve a Room
+     Then : I see a list of rooms available
+   Examples:
+      |start date|end date|
+      | 03-01-2025         | 05-01-2025       |          
+
+
 

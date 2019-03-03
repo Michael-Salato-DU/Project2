@@ -100,7 +100,7 @@ public class Project2Main {
 	public WebElement getAddressField()
 	{
 		driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
-		return driver.findElement(By.id("address"));
+		return driver.findElement(By.id("Address"));
 	}
 	
 	public WebElement getResponse()
@@ -133,5 +133,13 @@ public class Project2Main {
 	{
 		driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
 		return driver.findElement(By.id("seeAvailableRoomsBtn"));
+	}
+	public WebElement selectFirstRoom() {
+		driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+		return driver.findElement(By.id("0"));
+	}
+	public WebElement selectFifthRoom() {
+		driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+		return driver.findElement(By.id("4"));
 	}
 }
